@@ -16,10 +16,8 @@ class MscratchTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        # lang = sys.argv[1]
-        if sys.argv[1] == 'all':
-            cls.path = os.getcwd() + '/FORMAT_RESULT/' + lang + '.json'
-        
+        lang = sys.argv[1]
+        cls.path = os.getcwd() + '/FORMAT_RESULT/' + lang + '.json'
         f = open(cls.path, 'r')
         test_file = data_handle.byteify(json.load(f))
         cls.test_dict = test_file['mscratch-i18n']
@@ -28,6 +26,10 @@ class MscratchTest(unittest.TestCase):
         cls.extensions = cls.test_dict['extensions']
         cls.extensions_music = cls.extensions['music']
         cls.extensions_pen = cls.extensions['pen']
+
+    # @classmethod
+    # def tearDownClass(cls):
+    #     print('\n\n====: ' + lang + ' translation test of module mscratch is completed')
 
     # mscratch-i18n/No empty value
     def test_mscratch_i18n_no_empty_value(self):
@@ -906,15 +908,7 @@ class MscratchTest(unittest.TestCase):
 if __name__ == "__main__":
     # unittest.main(verbosity=2)
 
-    # # #此用法可以同时测试多个类
-    # suite1 = unittest.TestLoader().loadTestsFromTestCase(MscratchTest) 
-    # # suite = unittest.TestSuite([suite1, suite2, suite3]) 
-    # unittest.TextTestRunner(verbosity=2).run(suite1)
-    print('______________________________---')
-
-    if sys.argv[1] == 'all':
-        for filname in os.listdir('./FORMAT_RESULT/'):
-            print(filname.split('.')[0])
-            lang = filname.split('.')[0]
-            suite1 = unittest.TestLoader().loadTestsFromTestCase(MscratchTest) 
-            unittest.TextTestRunner(verbosity=2).run(suite1)
+    # #此用法可以同时测试多个类
+    suite1 = unittest.TestLoader().loadTestsFromTestCase(MscratchTest) 
+    # suite = unittest.TestSuite([suite1, suite2, suite3]) 
+    unittest.TextTestRunner(verbosity=2).run(suite1)
