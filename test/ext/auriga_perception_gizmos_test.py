@@ -28,6 +28,10 @@ class AurigaPerceptionGizmosTest(unittest.TestCase):
             self.assertIsNotNone(value)
             self.assertNotEqual(value, '')
 
+    # ext-i18n/auriga_perception_gizmos/No new or missing items
+    def test_ext_i18n_auriga_perception_gizmos_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 18)
+
     # ext-i18n/auriga_perception_gizmos/mcore_run_fan contains [ICON] [PORT] [FAN_ROTATE]
     def test_ext_i18n_auriga_perception_gizmos_mcore_run_fan(self):
         self.assertIn('mcore_run_fan', self.test_dict)

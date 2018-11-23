@@ -29,7 +29,9 @@ class CommonMediaTest(unittest.TestCase):
             self.assertIsNotNone(value)
             self.assertNotEqual(value, '')
 
-
+    # ext-i18n/common/media/No new or missing items
+    def test_ext_i18n_common_media_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 8)
 
 if __name__ == "__main__":
     # unittest.main(verbosity=2)

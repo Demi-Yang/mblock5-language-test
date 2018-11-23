@@ -29,6 +29,10 @@ class McoreLightSoundTest(unittest.TestCase):
             self.assertIsNotNone(value)
             self.assertNotEqual(value, '')
 
+    # ext-i18n/mcore_light_sound/No new or missing items
+    def test_ext_i18n_mcore_light_sound_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 24)
+
     # ext-i18n/mcore_light_sound/mcore_show_external_led_time contains [ICON] [PORT] [LED_POSTION] [COLOR] [TIME] 
     def test_ext_i18n_mcore_show_external_led_time(self):
         self.assertIn('mcore_show_external_led_time', self.test_dict)

@@ -28,6 +28,10 @@ class AurigaTest(unittest.TestCase):
             self.assertIsNotNone(value)
             self.assertNotEqual(value, '')
 
+    # ext-i18n/auriga/No new or missing items
+    def test_ext_i18n_auriga_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 208)
+
     # ext-i18n/auriga/extensionName equals "mBot Ranger"
     def test_ext_i18n_auriga_extensionName_equals_Arduino_Uno(self):
         self.assertIn('extensionName', self.test_dict)

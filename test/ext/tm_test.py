@@ -29,6 +29,10 @@ class TMTest(unittest.TestCase):
             self.assertIsNotNone(value)
             self.assertNotEqual(value, '')
 
+    # ext-i18n/tm/No new or missing items
+    def test_ext_i18n_tm_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 33)
+
     # ext-i18n/tm/visual_recognition_confidence contains [sample_index]
     def test_ext_i18n_visual_recognition_confidence(self):
         self.assertIn('visual_recognition_confidence', self.test_dict)

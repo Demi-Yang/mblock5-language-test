@@ -29,6 +29,10 @@ class CognitiveTest(unittest.TestCase):
             self.assertIsNotNone(value)
             self.assertNotEqual(value, '')
 
+    # ext-i18n/cognitive/No new or missing items
+    def test_ext_i18n_cognitive_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 46)
+
     # ext-i18n/cognitive/beginSpeechToText contains [LANGUAGE]、[TIMER]
     def test_ext_i18n_beginSpeechToText(self):
         self.assertIn('beginSpeechToText', self.test_dict)

@@ -28,6 +28,10 @@ class McoreAllTest(unittest.TestCase):
             self.assertIsNotNone(value)
             self.assertNotEqual(value, '')
 
+    # ext-i18n/mcore_all/No new or missing items
+    def test_ext_i18n_mcore_all_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 92)
+
     # ext-i18n/mcore_all/mcore_run_shutter contains [ICON] [PORT] [SHUTTER_ACTION]
     def test_ext_i18n_mcore_run_shutter(self):
         self.assertIn('mcore_run_shutter', self.test_dict)

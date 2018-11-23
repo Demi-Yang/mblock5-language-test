@@ -28,6 +28,10 @@ class IrRemoteTest(unittest.TestCase):
             self.assertIsNotNone(value)
             self.assertNotEqual(value, '')
 
+    # ext-i18n/irremote/No new or missing items
+    def test_ext_i18n_irremote_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 28)
+
     # ext-i18n/irremote/meos_ir_remote_letter_press contains [LETTER]
     def test_ext_i18n_meos_ir_remote_letter_press(self):
         self.assertIn('meos_ir_remote_letter_press', self.test_dict)

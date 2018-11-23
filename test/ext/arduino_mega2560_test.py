@@ -28,6 +28,10 @@ class ArduinoMega2560Test(unittest.TestCase):
             self.assertIsNotNone(value)
             self.assertNotEqual(value, '')
 
+    # ext-i18n/arduino_mega2560/No new or missing items
+    def test_ext_i18n_arduino_mega2560_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 68)
+
     # ext-i18n/arduino_mega2560/extensionName equals "Arduino Mega2560"
     def test_ext_i18n_arduino_mega2560_extensionName_equals_Arduino_Mega2560(self):
         self.assertIn('extensionName', self.test_dict)

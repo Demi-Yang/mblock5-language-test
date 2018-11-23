@@ -28,6 +28,10 @@ class Mblock5Test(unittest.TestCase):
             self.assertIsNotNone(value)
             self.assertNotEqual(value, '')
 
+    # mblock5-i18n/No new or missing items
+    def test_mblock5_i18n_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 473)
+
     # mblock5-i18n/MBLOCK equals mBlock
     def test_mblock5_i18n_MBLOCK_equals_mBlock(self):
         self.assertIn('MBLOCK', self.test_dict)

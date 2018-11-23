@@ -29,6 +29,10 @@ class NeuronTest(unittest.TestCase):
             self.assertIsNotNone(value)
             self.assertNotEqual(value, '')
 
+    # ext-i18n/neuron/No new or missing items
+    def test_ext_i18n_neuron_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 160)
+
     # mblock5-i18n/neuron/extensionName&neuron equals Neuron
     def test_mblock5_i18n_extensionName_equals_neuron(self):
         self.assertIn('extensionName', self.test_dict)

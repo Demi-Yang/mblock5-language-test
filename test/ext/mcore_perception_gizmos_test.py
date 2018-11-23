@@ -29,6 +29,10 @@ class McorePerceptionGizmosTest(unittest.TestCase):
             self.assertIsNotNone(value)
             self.assertNotEqual(value, '')
 
+    # ext-i18n/mcore_perception_gizmos/No new or missing items
+    def test_ext_i18n_mcore_perception_gizmos_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 20)
+
     # ext-i18n/mcore_perception_gizmos/mcore_run_fan contains [ICON] [PORT][FAN_ROTATE]
     def test_ext_i18n_mcore_run_fan(self):
         self.assertIn('mcore_run_fan', self.test_dict)

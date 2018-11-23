@@ -28,6 +28,10 @@ class AurigaVarietyGizmosTest(unittest.TestCase):
             self.assertIsNotNone(value)
             self.assertNotEqual(value, '')
 
+    # ext-i18n/auriga_variety_gizmos/No new or missing items
+    def test_ext_i18n_auriga_variety_gizmos_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 22)
+
     # ext-i18n/auriga_variety_gizmos/mcore_show_external_led_time contains [ICON] [PORT] [LED_POSTION] [COLOR] [TIME]
     def test_ext_i18n_auriga_variety_gizmos_mcore_show_external_led_time(self):
         self.assertIn('mcore_show_external_led_time', self.test_dict)

@@ -29,6 +29,10 @@ class CodeyEmotionTest(unittest.TestCase):
             self.assertIsNotNone(value)
             self.assertNotEqual(value, '')
 
+    # ext-i18n/codey_emotion/No new or missing items
+    def test_ext_i18n_codey_emotion_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 29)
+
     # ext-i18n/codey_emotion/codey_emotion_look_up contains [ICON]
     def test_ext_i18n_codey_emotion_look_up(self):
         self.assertIn('codey_emotion_look_up', self.test_dict)

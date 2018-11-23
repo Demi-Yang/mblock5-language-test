@@ -24,12 +24,14 @@ class ScratchMusicTest(unittest.TestCase):
         cls.test_dict = test_file['ext-i18n/scratch-music']
 
     # ext-i18n/scratch-music/No empty value
-    def test_ext_i18n_cognitive_no_empty_value(self):
+    def test_ext_i18n_scratch_music_no_empty_value(self):
         for key,value in self.test_dict.items():
             self.assertIsNotNone(value)
             self.assertNotEqual(value, '')
 
-
+    # ext-i18n/scratch-music/No new or missing items
+    def test_ext_i18n_scratch_music_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 2)
 
 if __name__ == "__main__":
     # unittest.main(verbosity=2)

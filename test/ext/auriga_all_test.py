@@ -28,6 +28,10 @@ class AurigaAllTest(unittest.TestCase):
             self.assertIsNotNone(value)
             self.assertNotEqual(value, '')
 
+    # ext-i18n/auriga_all/No new or missing items
+    def test_ext_i18n_auriga_all_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 110)
+
     # ext-i18n/auriga_all/auriga_run_board_encoder_motor contains [ICON] [ROTATE] [POWER] [PORT]%
     def test_ext_i18n_auriga_all_auriga_run_board_encoder_motor(self):
         self.assertIn('auriga_run_board_encoder_motor', self.test_dict)

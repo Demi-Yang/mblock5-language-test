@@ -29,6 +29,10 @@ class MicrobitMusicTest(unittest.TestCase):
             self.assertIsNotNone(value)
             self.assertNotEqual(value, '')
 
+    # ext-i18n/microbit_music/No new or missing items
+    def test_ext_i18n_microbit_music_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 78)
+
     # ext-i18n/microbit_music/microbit_show_play_sound contains [ICON] [PIN] [SOUND]
     def test_ext_i18n_microbit_show_play_sound(self):
         self.assertIn('microbit_show_play_sound', self.test_dict)

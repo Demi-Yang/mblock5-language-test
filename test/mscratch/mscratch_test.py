@@ -48,6 +48,10 @@ class MscratchTest(unittest.TestCase):
             self.assertIsNotNone(value)
             self.assertNotEqual(value, '')
 
+    # mscratch-i18n/gui/No new or missing items
+    def test_mscratch_i18n_gui_no_new_or_missing_items(self):
+        self.assertEqual(len(self.gui), 194)
+
     # mscratch-i18n/gui/gui.modal.inputTip contains （&<>'\"）"
     def test_mscratch_i18n_gui_modal_inputTip(self):
         self.assertIn('gui.modal.inputTip', self.gui)
@@ -72,6 +76,10 @@ class MscratchTest(unittest.TestCase):
         for key,value in self.blocks.items():
             self.assertIsNotNone(value)
             self.assertNotEqual(value, '')
+
+    # mscratch-i18n/blocks/No new or missing items
+    def test_mscratch_i18n_blocks_no_new_or_missing_items(self):
+        self.assertEqual(len(self.blocks), 301)
 
     # mscratch-i18n/blocks/CONTROL_REPEAT contains %2 %1 
     def test_mscratch_i18n_blocks_CONTROL_REPEAT(self):
@@ -804,11 +812,24 @@ class MscratchTest(unittest.TestCase):
 
     # ==== -mscratch-extensions-翻译检查  ===
 
+
     # mscratch-i18n/extensions/music/No empty value
     def test_mscratch_i18n_extensions_music_no_empty_value(self):
         for key,value in self.extensions_music.items():
             self.assertIsNotNone(value)
             self.assertNotEqual(value, '')
+
+    # mscratch-i18n/extensions/No new or missing items
+    def test_mscratch_i18n_extensions_no_new_or_missing_items(self):
+        self.assertEqual(len(self.extensions), 2)
+
+    # mscratch-i18n/extensions/music/No new or missing items
+    def test_mscratch_i18n_extensions_music_no_new_or_missing_items(self):
+        self.assertEqual(len(self.extensions_music), 47)
+
+    # mscratch-i18n/extensions/pen/No new items or missing items
+    def test_mscratch_i18n_extensions_pen_no_new_or_missing_items(self):
+        self.assertEqual(len(self.extensions_pen), 18)
 
     # mscratch-i18n/extensions/music/music.playDrumForBeats contains [DRUM] [BEATS]
     def test_mscratch_i18n_extensions_music_playDrumForBeats(self):

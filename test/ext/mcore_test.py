@@ -28,6 +28,10 @@ class McoreTest(unittest.TestCase):
             self.assertIsNotNone(value)
             self.assertNotEqual(value, '')
 
+    # ext-i18n/mcore/No new or missing items
+    def test_ext_i18n_mcore_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 198)
+
     # mblock5-i18n/extensionName&codeyneuron equals mBot
     def test_mblock5_i18n_extensionName_equals_mBot(self):
         self.assertIn('extensionName', self.test_dict)

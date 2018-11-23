@@ -28,6 +28,10 @@ class ArduinoUnoTest(unittest.TestCase):
             self.assertIsNotNone(value)
             self.assertNotEqual(value, '')
 
+    # ext-i18n/arduino_uno/No new or missing items
+    def test_ext_i18n_arduino_uno_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 69)
+
     # ext-i18n/arduino_uno/extensionName equals "Arduino Uno"
     def test_ext_i18n_arduino_uno_extensionName_equals_Arduino_Uno(self):
         self.assertIn('extensionName', self.test_dict)

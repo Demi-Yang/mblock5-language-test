@@ -28,6 +28,10 @@ class AurigaLaserSwordTest(unittest.TestCase):
             self.assertIsNotNone(value)
             self.assertNotEqual(value, '')
 
+    # ext-i18n/auriga_laser_sword/No new or missing items
+    def test_ext_i18n_auriga_laser_sword_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 22)
+
     # ext-i18n/auriga_laser_sword/auriga_show_all_ledstrip_color contains [ICON] [PORT] [SLOT] [COLOR_LIST]
     def test_ext_i18n_auriga_laser_sword_auriga_show_all_ledstrip_color(self):
         self.assertIn('auriga_show_all_ledstrip_color', self.test_dict)
