@@ -11,12 +11,18 @@ Testing for multi-language of mblock projects.  Use python+unittest+HTMLTestRunn
 # Usage
 测试单个模块的单语种测试，如测试 `mblock5` 模块的 `德语` 翻译，执行以下命令：
 <br/>
-``` python .\test\mblock5\mblock5_test.py de ```
+```
+python .\test\mblock5\mblock5_test.py de
+```
 <br/><br/>
 测试全部模块的单语种测试，如测试所有的 `德语` 翻译，执行以下命令：
 <br/>
-``` python run_tests.py de ```
+```
+python run_tests.py de
+```
 <br/><br/>
 测试全部模块的全部语种测试，执行以下命令：
 <br/>
-``` python run_tests.py all ```
+```
+python run_tests.py all
+```
