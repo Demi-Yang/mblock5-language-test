@@ -22,49 +22,66 @@ class AurigaPerceptionGizmosTest(unittest.TestCase):
         test_file = data_handle.byteify(json.load(f))
         cls.test_dict = test_file['ext-i18n/auriga_perception_gizmos']
 
+
+    def check_key_exists(self, key):
+        self.assertIn(key, self.test_dict, '\n缺少key: {0}'.format(key))
+
+    def check_expect_value(self, key, expect_value):
+        test_data = self.test_dict[key]
+        self.assertEqual(test_data, expect_value, '\nkey: {0},\n value:{1},\n error: 值不等于{2}, '.format(key, test_data, expect_value))
+
+    def check_param(self, key, param):
+        test_data = self.test_dict[key]
+        self.assertIn(param, test_data, '\nkey:{0}, 缺少参数：{1}'.format(key, param))
+
+    def check_icon(self, key):
+        test_data = self.test_dict[key]
+        self.assertIn('[ICON]', test_data, '\nkey: {0}, 缺少参数：[ICON]'.format(key))
+        self.assertEqual(test_data.index('[ICON]'), 0, '\nkey: {0}, error:参数[ICON]必须在首位'.format(key))
+
+
+
+
     # ext-i18n/auriga_perception_gizmos/No empty value
-    def test_ext_i18n_auriga_perception_gizmos_no_empty_value(self):
+    def test_no_empty_value(self):
         for key,value in self.test_dict.items():
-            self.assertIsNotNone(value)
-            self.assertNotEqual(value, '')
+            self.assertIsNotNone(value, "缺少翻译的字段：" + key)
+            self.assertNotEqual(value, '', "缺少翻译的字段：" + key)
 
     # ext-i18n/auriga_perception_gizmos/No new or missing items
-    def test_ext_i18n_auriga_perception_gizmos_no_new_or_missing_items(self):
-        self.assertEqual(len(self.test_dict), 18)
+    def test_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 18, "auriga_laser_sword 模块下存在新增或者删减的字段，需要修改测试用例！")
 
     # ext-i18n/auriga_perception_gizmos/mcore_run_fan contains [ICON] [PORT] [FAN_ROTATE]
-    def test_ext_i18n_auriga_perception_gizmos_mcore_run_fan(self):
-        self.assertIn('mcore_run_fan', self.test_dict)
-        test_data = self.test_dict['mcore_run_fan']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[FAN_ROTATE]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_mcore_run_fan(self):
+        key = 'mcore_run_fan'
+        self.check_key_exists(key)
+        
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[FAN_ROTATE]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_perception_gizmos/mcore_detect_external_loudness contains [ICON] [PORT] 
-    def test_ext_i18n_auriga_perception_gizmos_mcore_detect_external_loudness(self):
-        self.assertIn('mcore_detect_external_loudness', self.test_dict)
-        test_data = self.test_dict['mcore_detect_external_loudness']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_mcore_detect_external_loudness(self):
+        key = 'mcore_detect_external_loudness'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_perception_gizmos/mcore_detec_temperature contains [ICON] [PORT] [SLOT]
-    def test_ext_i18n_auriga_perception_gizmos_mcore_detec_temperature(self):
-        self.assertIn('mcore_detec_temperature', self.test_dict)
-        test_data = self.test_dict['mcore_detec_temperature']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[SLOT]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_mcore_detec_temperature(self):
+        key = 'mcore_detec_temperature'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[SLOT]')
+        self.check_icon(key)
 
-    # ext-i18n/auriga_perception_gizmos/mcore_detect_potentiometer contains [ICON] [PORT] [FAN_ROTATE]
-    def test_ext_i18n_auriga_perception_gizmos_mcore_detect_potentiometer(self):
-        self.assertIn('mcore_detect_potentiometer', self.test_dict)
-        test_data = self.test_dict['mcore_detect_potentiometer']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    # ext-i18n/auriga_perception_gizmos/mcore_detect_potentiometer contains [ICON] [PORT]
+    def test_mcore_detect_potentiometer(self):
+        key = 'mcore_detect_potentiometer'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_icon(key)
 
 
 
