@@ -31,19 +31,20 @@ class Mblock5Test(unittest.TestCase):
     # mblock5-i18n/No empty value
     def test_no_empty_value(self):
         for key,value in self.test_dict.items():
-            self.assertIsNotNone(value, assert_msg.format(key, "值不能为None"))
-            self.assertNotEqual(value, assert_msg.format(key, "值不能为空"))
+            self.assertIsNotNone(value, 'mblock5-i18n 模块下存在未翻译的字段: {0}'.format(key))
+            self.assertNotEqual(value, "", 'mblock5-i18n 模块下存在未翻译的字段: {0}'.format(key))
 
     # mblock5-i18n/No new or missing items
     def test_no_new_or_missing_items(self):
         key_len = 473
-        self.assertEqual(len(self.test_dict), key_len, "error: key总数不对")
+        self.assertEqual(len(self.test_dict), key_len, "mblock5-i18n 模块下新增或删减了新的字段，测试用例需增减~")
 
     # mblock5-i18n/MBLOCK equals mBlock
     def test_MBLOCK(self):
-        self.assertIn('MBLOCK', self.test_dict)
-        test_data = self.test_dict['MBLOCK']
-        self.assertEqual(test_data, 'mBlock', assert_msg.format('MBLOCK', '值不是: mBlock'))
+        key = 'MBLOCK'
+        self.assertIn(key, self.test_dict)
+        test_data = self.test_dict[key]
+        self.assertEqual(test_data, 'mBlock', assert_msg.format(key, 'expect value: mBlock'))
 
     # mblock5-i18n/FORM.BUTTON.CODE.SENDED contains {0}
     def test_FORM_BUTTON_CODE_SENDED(self):
