@@ -42,67 +42,67 @@ class ExtensionsPenTest(unittest.TestCase):
 
 
     # mscratch-i18n/extensions/pen/No new items or missing items
-    def test_extensions_pen_no_new_or_missing_items(self):
+    def test_no_new_or_missing_items(self):
         self.assertEqual(len(self.test_dict), 18, "mscratch-i18n/extensions/pen 模块下新增或删减了翻译字段")
 
     # mscratch-i18n/extensions/pen/No empty value
-    def test_extensions_pen_no_empty_value(self):
+    def test_no_empty_value(self):
         for key,value in self.test_dict.items():
             self.assertIsNotNone(value, "该字段的翻译为空，错误 key: " + key)
             self.assertNotEqual(value, '', "该字段的翻译为空，错误 key: " + key)
 
     # mscratch-i18n/extensions/pen/pen.setColor contains [COLOR] 
-    def test_extensions_pen_setColor(self):
+    def test_setColor(self):
         key = 'pen.setColor'
         self.check_key_exists(key)
         self.check_param(key, '[COLOR]')
 
     # mscratch-i18n/extensions/pen/pen.changeColorParam contains [COLOR_PARAM] [VALUE] 
-    def test_extensions_pen_changeColorParam(self):
+    def test_changeColorParam(self):
         key = 'pen.changeColorParam'
         self.check_key_exists(key)
         self.check_param(key, '[COLOR_PARAM]')
         self.check_param(key, '[VALUE]')
 
     # mscratch-i18n/extensions/pen/pen.setColorParam contains [COLOR_PARAM] [VALUE] 
-    def test_extensions_pen_setColorParam(self):
+    def test_setColorParam(self):
         key = 'pen.setColorParam'
         self.check_key_exists(key)
         self.check_param(key, '[COLOR_PARAM]')
         self.check_param(key, '[VALUE]')
 
     # mscratch-i18n/extensions/pen/pen.changeSize contains [SIZE] 
-    def test_extensions_pen_changeSize(self):
+    def test_changeSize(self):
         key = 'pen.changeSize'
         self.check_key_exists(key)
         self.check_param(key, '[SIZE]')
 
     # mscratch-i18n/extensions/pen/pen.setSize contains [SIZE] 
-    def test_extensions_pen_setSize(self):
+    def test_setSize(self):
         key = 'pen.setSize'
         self.check_key_exists(key)
         self.check_param(key, '[SIZE]')
 
     # mscratch-i18n/extensions/pen/pen.setShade contains [SHADE] 
-    def test_extensions_pen_setShade(self):
+    def test_setShade(self):
         key = 'pen.setShade'
         self.check_key_exists(key)
         self.check_param(key, '[SHADE]')
 
     # mscratch-i18n/extensions/pen/pen.changeShade contains [SHADE] 
-    def test_extensions_pen_changeShade(self):
+    def test_changeShade(self):
         key = 'pen.changeShade'
         self.check_key_exists(key)
         self.check_param(key, '[SHADE]')
 
     # mscratch-i18n/extensions/pen/pen.setHue contains [HUE] 
-    def test_extensions_pen_setHue(self):
+    def test_setHue(self):
         key = 'pen.setHue'
         self.check_key_exists(key)
         self.check_param(key, '[HUE]')
 
     # mscratch-i18n/extensions/pen/pen.changeHue contains [HUE] 
-    def test_extensions_pen_changeHue(self):
+    def test_changeHue(self):
         key = 'pen.changeHue'
         self.check_key_exists(key)
         self.check_param(key, '[HUE]')

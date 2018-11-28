@@ -42,42 +42,42 @@ class ExtensionsMusicTest(unittest.TestCase):
 
 
     # mscratch-i18n/extensions/music/No empty value
-    def test_no_empty_value(self):
+    def test_extensions_music_no_empty_value(self):
         for key,value in self.test_dict.items():
             self.assertIsNotNone(value, "该字段的翻译为空，错误 key: " + key)
             self.assertNotEqual(value, '', "该字段的翻译为空，错误 key: " + key)
 
     # mscratch-i18n/extensions/music/No new or missing items
-    def test_no_new_or_missing_items(self):
+    def test_extensions_music_no_new_or_missing_items(self):
         self.assertEqual(len(self.test_dict), 47, "mscratch-i18n/extensions/music 模块下新增或删减了翻译字段")
 
     # mscratch-i18n/extensions/music/music.playDrumForBeats contains [DRUM] [BEATS]
-    def test_playDrumForBeats(self):
+    def test_extensions_music_playDrumForBeats(self):
         key = 'music.playDrumForBeats'
         self.check_key_exists(key)
         self.check_param(key, '[DRUM]')
         self.check_param(key, '[BEATS]')
 
     # mscratch-i18n/extensions/music/music.playNoteForBeats contains [BEATS]
-    def test_playNoteForBeats(self):
+    def test_extensions_music_playNoteForBeats(self):
         key = 'music.playNoteForBeats'
         self.check_key_exists(key)
         self.check_param(key, '[BEATS]')
 
     # mscratch-i18n/extensions/music/music.setInstrument contains [INSTRUMENT]
-    def test_setInstrument(self):
+    def test_extensions_music_setInstrument(self):
         key = 'music.setInstrument'
         self.check_key_exists(key)
         self.check_param(key, '[INSTRUMENT]')
 
     # mscratch-i18n/extensions/music/music.setTempo contains [DRUM] [TEMPO]
-    def test_setTempo(self):
+    def test_extensions_music_setTempo(self):
         key = 'music.setTempo'
         self.check_key_exists(key)
         self.check_param(key, '[TEMPO]')
 
     # mscratch-i18n/extensions/music/music.changeTempo contains [DRUM] [TEMPO]
-    def test_changeTempo(self):
+    def test_extensions_music_changeTempo(self):
         key = 'music.changeTempo'
         self.check_key_exists(key)
         self.check_param(key, '[TEMPO]')
