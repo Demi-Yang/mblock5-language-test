@@ -25,12 +25,12 @@ class AurigaAllTest(unittest.TestCase):
     # ext-i18n/auriga_all/No empty value
     def test_ext_i18n_auriga_all_no_empty_value(self):
         for key,value in self.test_dict.items():
-            self.assertIsNotNone(value)
-            self.assertNotEqual(value, '')
+            self.assertIsNotNone(value, "缺少翻译的字段：" + key)
+            self.assertNotEqual(value, '', "翻译为空的字段：" + key)
 
     # ext-i18n/auriga_all/No new or missing items
     def test_ext_i18n_auriga_all_no_new_or_missing_items(self):
-        self.assertEqual(len(self.test_dict), 110)
+        self.assertEqual(len(self.test_dict), 110, "auriga_all 模块下存在新增或者删减的字段，需要修改测试用例！")
 
     # ext-i18n/auriga_all/auriga_run_board_encoder_motor contains [ICON] [ROTATE] [POWER] [PORT]%
     def test_ext_i18n_auriga_all_auriga_run_board_encoder_motor(self):
