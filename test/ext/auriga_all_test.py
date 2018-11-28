@@ -22,459 +22,439 @@ class AurigaAllTest(unittest.TestCase):
         test_file = data_handle.byteify(json.load(f))
         cls.test_dict = test_file['ext-i18n/auriga_all']
 
+
+    def check_key_exists(self, key):
+        self.assertIn(key, self.test_dict, '\n缺少key: {0}'.format(key))
+
+    def check_expect_value(self, key, expect_value):
+        test_data = self.test_dict[key]
+        self.assertEqual(test_data, expect_value, '\nkey: {0},\n value:{1},\n error: 值不等于{2}, '.format(key, test_data, expect_value))
+
+    def check_param(self, key, param):
+        test_data = self.test_dict[key]
+        self.assertIn(param, test_data, '\nkey:{0}, 缺少参数：{1}'.format(key, param))
+
+    def check_icon(self, key):
+        test_data = self.test_dict[key]
+        self.assertIn('[ICON]', test_data, '\nkey: {0}, 缺少参数：[ICON]'.format(key))
+        self.assertEqual(test_data.index('[ICON]'), 0, '\nkey: {0}, error:参数[ICON]必须在首位'.format(key))
+
+
+
+
+
+
+
+
+
+
+
     # ext-i18n/auriga_all/No empty value
-    def test_ext_i18n_auriga_all_no_empty_value(self):
+    def test_no_empty_value(self):
         for key,value in self.test_dict.items():
             self.assertIsNotNone(value, "缺少翻译的字段：" + key)
             self.assertNotEqual(value, '', "翻译为空的字段：" + key)
 
     # ext-i18n/auriga_all/No new or missing items
-    def test_ext_i18n_auriga_all_no_new_or_missing_items(self):
+    def test_no_new_or_missing_items(self):
         self.assertEqual(len(self.test_dict), 110, "auriga_all 模块下存在新增或者删减的字段，需要修改测试用例！")
 
     # ext-i18n/auriga_all/auriga_run_board_encoder_motor contains [ICON] [ROTATE] [POWER] [PORT]%
-    def test_ext_i18n_auriga_all_auriga_run_board_encoder_motor(self):
-        self.assertIn('auriga_run_board_encoder_motor', self.test_dict)
-        test_data = self.test_dict['auriga_run_board_encoder_motor']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[ROTATE]', test_data)
-        self.assertIn('[POWER]%', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_run_board_encoder_motor(self):
+        key = 'auriga_run_board_encoder_motor'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')  
+        self.check_param(key, '[ROTATE]')  
+        self.check_param(key, '[POWER]%')  
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_run_board_encoder_motor_speed contains [ICON] [PORT] [ROTATE] [POWER]
-    def test_ext_i18n_auriga_all_auriga_run_board_encoder_motor_speed(self):
-        self.assertIn('auriga_run_board_encoder_motor_speed', self.test_dict)
-        test_data = self.test_dict['auriga_run_board_encoder_motor_speed']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[ROTATE]', test_data)
-        self.assertIn('[POWER]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_run_board_encoder_motor_speed(self):
+        key = 'auriga_run_board_encoder_motor_speed'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[ROTATE]')
+        self.check_param(key, '[POWER]')  
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_run_board_encoder_motor_pos contains [ICON] [PORT] [ROTATE] [DEGREE] [POWER][G][B]
-    def test_ext_i18n_auriga_all_auriga_run_board_encoder_motor_pos(self):
-        self.assertIn('auriga_run_board_encoder_motor_pos', self.test_dict)
-        test_data = self.test_dict['auriga_run_board_encoder_motor_pos']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[ROTATE]', test_data)
-        self.assertIn('[DEGREE]', test_data)
-        self.assertIn('[POWER]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_run_board_encoder_motor_pos(self):
+        key = 'auriga_run_board_encoder_motor_pos'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[ROTATE]')
+        self.check_param(key, '[DEGREE]') 
+        self.check_param(key, '[POWER]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_run_encoder_motor contains [ICON] [PORT] [SLOT] [ROTATE] [DEGREE][POWER]
-    def test_ext_i18n_auriga_all_auriga_run_encoder_motor(self):
-        self.assertIn('auriga_run_encoder_motor', self.test_dict)
-        test_data = self.test_dict['auriga_run_encoder_motor']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[SLOT]', test_data)
-        self.assertIn('[ROTATE]', test_data)
-        self.assertIn('[DEGREE]', test_data)
-        self.assertIn('[POWER]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_run_encoder_motor(self):
+        key = 'auriga_run_encoder_motor'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[SLOT]') 
+        self.check_param(key, '[ROTATE]')
+        self.check_param(key, '[DEGREE]')
+        self.check_param(key, '[POWER]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_run_motor contains [ICON] [PORT] [ROTATE] [POWER] %
-    def test_ext_i18n_auriga_all_auriga_run_motor(self):
-        self.assertIn('auriga_run_motor', self.test_dict)
-        test_data = self.test_dict['auriga_run_motor']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[ROTATE]', test_data)
-        self.assertIn('[POWER] %', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_run_motor(self):
+        key = 'auriga_run_motor'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[ROTATE]')
+        self.check_param(key, '[POWER] %') 
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_run_stepper_motor_pos contains [ICON] [PORT] [ROTATE] [DISTANCE] [POWER]
-    def test_ext_i18n_auriga_all_auriga_run_stepper_motor_pos(self):
-        self.assertIn('auriga_run_stepper_motor_pos', self.test_dict)
-        test_data = self.test_dict['auriga_run_stepper_motor_pos']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[ROTATE]', test_data)
-        self.assertIn('[DISTANCE]', test_data)
-        self.assertIn('[POWER]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_run_stepper_motor_pos(self):
+        key = 'auriga_run_stepper_motor_pos'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[ROTATE]')
+        self.check_param(key, '[DISTANCE]')  
+        self.check_param(key, '[POWER]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_run_servo contains [ICON] [PORT] [SLOT] [DEGREE]
-    def test_ext_i18n_auriga_all_auriga_run_servo(self):
-        self.assertIn('auriga_run_servo', self.test_dict)
-        test_data = self.test_dict['auriga_run_servo']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[SLOT]', test_data)
-        self.assertIn('[DEGREE]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_run_servo(self):
+        key = 'auriga_run_servo'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[SLOT]')
+        self.check_param(key, '[DEGREE]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_run_fan contains [ICON] [PORT] [FAN_ROTATE]
-    def test_ext_i18n_auriga_all_auriga_run_fan(self):
-        self.assertIn('auriga_run_fan', self.test_dict)
-        test_data = self.test_dict['auriga_run_fan']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[FAN_ROTATE]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_run_fan(self):
+        key = 'auriga_run_fan'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[FAN_ROTATE]')   
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_run_shutter contains [ICON] [PORT] [SHUTTER_ACTION]
-    def test_ext_i18n_auriga_all_auriga_run_shutter(self):
-        self.assertIn('auriga_run_shutter', self.test_dict)
-        test_data = self.test_dict['auriga_run_shutter']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[SHUTTER_ACTION]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_run_shutter(self):
+        key = 'auriga_run_shutter'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[SHUTTER_ACTION]') 
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_run_smart_servo_to_zero contains [ICON] [INDEX]
-    def test_ext_i18n_auriga_all_auriga_run_smart_servo_to_zero(self):
-        self.assertIn('auriga_run_smart_servo_to_zero', self.test_dict)
-        test_data = self.test_dict['auriga_run_smart_servo_to_zero']
-        self.assertIn('[INDEX]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_run_smart_servo_to_zero(self):
+        key = 'auriga_run_smart_servo_to_zero'
+        self.check_key_exists(key)
+        self.check_param(key, '[INDEX]')  
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_run_smart_servo contains [ICON] [INDEX] [ROTATE] [POWER]
-    def test_ext_i18n_auriga_all_auriga_run_smart_servo(self):
-        self.assertIn('auriga_run_smart_servo', self.test_dict)
-        test_data = self.test_dict['auriga_run_smart_servo']
-        self.assertIn('[INDEX]', test_data)
-        self.assertIn('[ROTATE]', test_data)
-        self.assertIn('[POWER]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_run_smart_servo(self):
+        key = 'auriga_run_smart_servo'
+        self.check_key_exists(key)
+        self.check_param(key, '[INDEX]')
+        self.check_param(key, '[ROTATE]')
+        self.check_param(key, '[POWER]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_run_smart_servo_absolute contains [ICON] [INDEX] [ROTATE] [POSITION] [POWER]
-    def test_ext_i18n_auriga_all_auriga_run_smart_servo_absolute(self):
-        self.assertIn('auriga_run_smart_servo_absolute', self.test_dict)
-        test_data = self.test_dict['auriga_run_smart_servo_absolute']
-        self.assertIn('[INDEX]', test_data)
-        self.assertIn('[ROTATE]', test_data)
-        self.assertIn('[POSITION]', test_data)
-        self.assertIn('[POWER]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_run_smart_servo_absolute(self):
+        key = 'auriga_run_smart_servo_absolute'
+        self.check_key_exists(key)
+        self.check_param(key, '[INDEX]')
+        self.check_param(key, '[ROTATE]')
+        self.check_param(key, '[POSITION]') 
+        self.check_param(key, '[POWER]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_run_smart_servo_to_relative contains [ICON] [INDEX] [ROTATE] [DEGREE] [POWER]
-    def test_ext_i18n_auriga_all_auriga_run_smart_servo_to_relative(self):
-        self.assertIn('auriga_run_smart_servo_to_relative', self.test_dict)
-        test_data = self.test_dict['auriga_run_smart_servo_to_relative']
-        self.assertIn('[INDEX]', test_data)
-        self.assertIn('[ROTATE]', test_data)
-        self.assertIn('[DEGREE]', test_data)
-        self.assertIn('[POWER]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_run_smart_servo_to_relative(self):
+        key = 'auriga_run_smart_servo_to_relative'
+        self.check_key_exists(key)
+        self.check_param(key, '[INDEX]')
+        self.check_param(key, '[ROTATE]')
+        self.check_param(key, '[DEGREE]')
+        self.check_param(key, '[POWER]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_show_face_time contains [ICON] [PORT] [FACE_PANEL] [TIME]
-    def test_ext_i18n_auriga_all_auriga_show_face_time(self):
-        self.assertIn('auriga_show_face_time', self.test_dict)
-        test_data = self.test_dict['auriga_show_face_time']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[FACE_PANEL]', test_data)
-        self.assertIn('[TIME]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_show_face_time(self):
+        key = 'auriga_show_face_time'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[FACE_PANEL]')
+        self.check_param(key, '[TIME]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_show_face contains [ICON] [PORT] [FACE_PANEL]
-    def test_ext_i18n_auriga_all_auriga_show_face(self):
-        self.assertIn('auriga_show_face', self.test_dict)
-        test_data = self.test_dict['auriga_show_face']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[FACE_PANEL]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_show_face(self):
+        key = 'auriga_show_face'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[FACE_PANEL]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_show_face_position contains [ICON] [PORT] [FACE_PANEL] x: [X] y: [Y]
-    def test_ext_i18n_auriga_all_auriga_show_face_position(self):
-        self.assertIn('auriga_show_face_position', self.test_dict)
-        test_data = self.test_dict['auriga_show_face_position']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[FACE_PANEL]', test_data)
-        self.assertIn('x: [X] y: [Y]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_show_face_position(self):
+        key = 'auriga_show_face_position'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[FACE_PANEL]')
+        self.check_param(key, 'x: [X] y: [Y]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_show_text contains [ICON] [PORT] [TEXT]
-    def test_ext_i18n_auriga_all_auriga_show_text(self):
-        self.assertIn('auriga_show_text', self.test_dict)
-        test_data = self.test_dict['auriga_show_text']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[TEXT]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_show_text(self):
+        key = 'auriga_show_text'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[TEXT]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_show_text_position contains [ICON]  [PORT] [TEXT] x: [X] y: [Y]
-    def test_ext_i18n_auriga_all_auriga_show_text_position(self):
-        self.assertIn('auriga_show_text_position', self.test_dict)
-        test_data = self.test_dict['auriga_show_text_position']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[TEXT]', test_data)
-        self.assertIn('x: [X] y: [Y]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_show_text_position(self):
+        key = 'auriga_show_text_position'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[TEXT]')
+        self.check_param(key, 'x: [X] y: [Y]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_show_number contains [ICON] [PORT] [NUMBER]
-    def test_ext_i18n_auriga_all_auriga_show_number(self):
-        self.assertIn('auriga_show_number', self.test_dict)
-        test_data = self.test_dict['auriga_show_number']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[NUMBER]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_show_number(self):
+        key = 'auriga_show_number'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[NUMBER]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_show_time contains [ICON] [PORT] [NUMBER1] [NUMBER2]
-    def test_ext_i18n_auriga_all_auriga_show_time(self):
-        self.assertIn('auriga_show_time', self.test_dict)
-        test_data = self.test_dict['auriga_show_time']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[NUMBER1]', test_data)
-        self.assertIn('[NUMBER2]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_show_time(self):
+        key = 'auriga_show_time'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[NUMBER1]')
+        self.check_param(key, '[NUMBER2]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_show_face_off contains [ICON] [PORT]
-    def test_ext_i18n_auriga_all_auriga_show_face_off(self):
-        self.assertIn('auriga_show_face_off', self.test_dict)
-        test_data = self.test_dict['auriga_show_face_off']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_show_face_off(self):
+        key = 'auriga_show_face_off'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_show_external_led_time contains [ICON] [PORT] [LED_POSTION] [COLOR] [TIME]
-    def test_ext_i18n_auriga_all_auriga_show_external_led_time(self):
-        self.assertIn('auriga_show_external_led_time', self.test_dict)
-        test_data = self.test_dict['auriga_show_external_led_time']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[LED_POSTION]', test_data)
-        self.assertIn('[COLOR]', test_data)
-        self.assertIn('[TIME]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_show_external_led_time(self):
+        key = 'auriga_show_external_led_time'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[LED_POSTION]')
+        self.check_param(key, '[COLOR]')
+        self.check_param(key, '[TIME]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_show_external_led contains [ICON] [PORT] [LED_POSTION] [COLOR]
-    def test_ext_i18n_auriga_all_auriga_show_external_led(self):
-        self.assertIn('auriga_show_external_led', self.test_dict)
-        test_data = self.test_dict['auriga_show_external_led']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[LED_POSTION]', test_data)
-        self.assertIn('[COLOR]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_show_external_led(self):
+        key = 'auriga_show_external_led'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[LED_POSTION]')
+        self.check_param(key, '[COLOR]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_show_external_led_rgb contains [ICON] [PORT] [LED_POSTION] [R] [G] [B]
-    def test_ext_i18n_auriga_all_auriga_show_external_led_rgb(self):
-        self.assertIn('auriga_show_external_led_rgb', self.test_dict)
-        test_data = self.test_dict['auriga_show_external_led_rgb']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[LED_POSTION]', test_data)
-        self.assertIn('[R]', test_data)
-        self.assertIn('[G]', test_data)
-        self.assertIn('[B]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_show_external_led_rgb(self):
+        key = 'auriga_show_external_led_rgb'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[LED_POSTION]')
+        self.check_param(key, '[R]')
+        self.check_param(key, '[G]')
+        self.check_param(key, '[B]')
+        self.check_icon(key)
 
 
-    # ext-i18n/auriga_all/auriga_show_all_ledstrip_color contains [ICON] [PORT] [SLOT] [COLOR_LIST]
-    def test_ext_i18n_auriga_all_auriga_show_all_ledstrip_color(self):
-        self.assertIn('auriga_show_all_ledstrip_color', self.test_dict)
-        test_data = self.test_dict['auriga_show_all_ledstrip_color']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[SLOT]', test_data)
-        self.assertIn('[COLOR_LIST]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    # ext-i18n/auriga_all/auriga_show_ledstrip_color contains [ICON] [PORT] [SLOT] [COLOR_LIST]
+    def test_auriga_show_all_ledstrip_color(self):
+        key = 'auriga_show_ledstrip_color'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[SLOT]')
+        self.check_param(key, '[COLOR_LIST]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_show_ledstrip_color contains [ICON] [PORT] [SLOT] [POS] [COLOR_LIST]
-    def test_ext_i18n_auriga_all_auriga_show_ledstrip_color(self):
-        self.assertIn('auriga_show_ledstrip_color', self.test_dict)
-        test_data = self.test_dict['auriga_show_ledstrip_color']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[SLOT]', test_data)
-        self.assertIn('[POS]', test_data)
-        self.assertIn('[COLOR_LIST]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_show_ledstrip_color(self):
+        key = 'auriga_show_ledstrip_color'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[SLOT]')
+        self.check_param(key, '[POS]')
+        self.check_param(key, '[COLOR_LIST]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_show_ledstrip_rbg contains [ICON] [PORT] [SLOT] [POS] [R][G][B]
-    def test_ext_i18n_auriga_all_auriga_show_ledstrip_rbg(self):
-        self.assertIn('auriga_show_ledstrip_rbg', self.test_dict)
-        test_data = self.test_dict['auriga_show_ledstrip_rbg']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[SLOT]', test_data)
-        self.assertIn('[POS]', test_data)
-        self.assertIn('[R]', test_data)
-        self.assertIn('[G]', test_data)
-        self.assertIn('[B]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_show_ledstrip_rbg(self):
+        key = 'auriga_show_ledstrip_rbg'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[SLOT]')
+        self.check_param(key, '[POS]')
+        self.check_param(key, '[R]')
+        self.check_param(key, '[G]')
+        self.check_param(key, '[B]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_show_7segments_number contains [ICON] [PORT] [NUMBER]
-    def test_ext_i18n_auriga_all_auriga_show_7segments_number(self):
-        self.assertIn('auriga_show_7segments_number', self.test_dict)
-        test_data = self.test_dict['auriga_show_7segments_number']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[NUMBER]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_show_7segments_number(self):
+        key = 'auriga_show_7segments_number'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[NUMBER]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_detect_external_ultrasonic contains [ICON] [PORT]
-    def test_ext_i18n_auriga_all_auriga_detect_external_ultrasonic(self):
-        self.assertIn('auriga_detect_external_ultrasonic', self.test_dict)
-        test_data = self.test_dict['auriga_detect_external_ultrasonic']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_detect_external_ultrasonic(self):
+        key = 'auriga_detect_external_ultrasonic'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_detect_external_light contains [ICON] [PORT]
-    def test_ext_i18n_auriga_all_auriga_detect_external_light(self):
-        self.assertIn('auriga_detect_external_light', self.test_dict)
-        test_data = self.test_dict['auriga_detect_external_light']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_detect_external_light(self):
+        key = 'auriga_detect_external_light'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_detect_external_loudness contains [ICON] [PORT]
-    def test_ext_i18n_auriga_all_auriga_detect_external_loudness(self):
-        self.assertIn('auriga_detect_external_loudness', self.test_dict)
-        test_data = self.test_dict['auriga_detect_external_loudness']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_detect_external_loudness(self):
+        key = 'auriga_detect_external_loudness'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_detect_external_linefollower contains [ICON] [PORT]
-    def test_ext_i18n_auriga_all_auriga_detect_external_linefollower(self):
-        self.assertIn('auriga_detect_external_linefollower', self.test_dict)
-        test_data = self.test_dict['auriga_detect_external_linefollower']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_detect_external_linefollower(self):
+        key = 'auriga_detect_external_linefollower'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_event_external_linefollower contains [ICON] [PORT] [LINEFOLLOW_STATE] [BLACK_WHITE]
-    def test_ext_i18n_auriga_all_auriga_event_external_linefollower(self):
-        self.assertIn('auriga_event_external_linefollower', self.test_dict)
-        test_data = self.test_dict['auriga_event_external_linefollower']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[LINEFOLLOW_STATE]', test_data)
-        self.assertIn('[BLACK_WHITE]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_event_external_linefollower(self):
+        key = 'auriga_event_external_linefollower'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[LINEFOLLOW_STATE]')
+        self.check_param(key, '[BLACK_WHITE]')
+        self.check_icon(key)
 
 
     # ext-i18n/auriga_all/auriga_detec_temperature contains [ICON] [SLOT] [PORT] 
-    def test_ext_i18n_auriga_all_auriga_detec_temperature(self):
-        self.assertIn('auriga_detec_temperature', self.test_dict)
-        test_data = self.test_dict['auriga_detec_temperature']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[SLOT]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_detec_temperature(self):
+        key = 'auriga_detec_temperature'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[SLOT]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_detect_humiture contains [ICON] [TEMP_HUMITURE] [PORT]
-    def test_ext_i18n_auriga_all_auriga_detect_humiture(self):
-        self.assertIn('auriga_detect_humiture', self.test_dict)
-        test_data = self.test_dict['auriga_detect_humiture']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[TEMP_HUMITURE]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_detect_humiture(self):
+        key = 'auriga_detect_humiture'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[TEMP_HUMITURE]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_event_touch contains [ICON] [PORT]
-    def test_ext_i18n_auriga_all_auriga_event_touch(self):
-        self.assertIn('auriga_event_touch', self.test_dict)
-        test_data = self.test_dict['auriga_event_touch']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_event_touch(self):
+        key = 'auriga_event_touch'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_detect_compass contains [ICON] [PORT]
-    def test_ext_i18n_auriga_all_auriga_detect_compass(self):
-        self.assertIn('auriga_detect_compass', self.test_dict)
-        test_data = self.test_dict['auriga_detect_compass']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_detect_compass(self):
+        key = 'auriga_detect_compass'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_detect_flame contains [ICON] [PORT]
-    def test_ext_i18n_auriga_all_auriga_detect_flame(self):
-        self.assertIn('auriga_detect_flame', self.test_dict)
-        test_data = self.test_dict['auriga_detect_flame']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_detect_flame(self):
+        key = 'auriga_detect_flame'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_detect_gas contains [ICON] [PORT]
-    def test_ext_i18n_auriga_all_auriga_detect_gas(self):
-        self.assertIn('auriga_detect_gas', self.test_dict)
-        test_data = self.test_dict['auriga_detect_gas']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_detect_gas(self):
+        key = 'auriga_detect_gas'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_detect_board_gyro_angle contains [ICON] [AXIS]
-    def test_ext_i18n_auriga_all_auriga_detect_board_gyro_angle(self):
-        self.assertIn('auriga_detect_board_gyro_angle', self.test_dict)
-        test_data = self.test_dict['auriga_detect_board_gyro_angle']
-        self.assertIn('[AXIS]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_detect_board_gyro_angle(self):
+        key = 'auriga_detect_board_gyro_angle'
+        self.check_key_exists(key)
+        self.check_param(key, '[AXIS]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_detect_gyro_angle contains [ICON] [AXIS]
-    def test_ext_i18n_auriga_all_auriga_detect_gyro_angle(self):
-        self.assertIn('auriga_detect_gyro_angle', self.test_dict)
-        test_data = self.test_dict['auriga_detect_gyro_angle']
-        self.assertIn('[AXIS]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_detect_gyro_angle(self):
+        key = 'auriga_detect_gyro_angle'
+        self.check_key_exists(key)
+        self.check_param(key, '[AXIS]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_event_pir_motion contains [ICON] [PORT]
-    def test_ext_i18n_auriga_all_auriga_event_pir_motion(self):
-        self.assertIn('auriga_event_pir_motion', self.test_dict)
-        test_data = self.test_dict['auriga_event_pir_motion']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_event_pir_motion(self):
+        key = 'auriga_event_pir_motion'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_event_button_press contains [ICON] [FOUR_KEY] [PORT]
-    def test_ext_i18n_auriga_all_auriga_event_button_press(self):
-        self.assertIn('auriga_event_button_press', self.test_dict)
-        test_data = self.test_dict['auriga_event_button_press']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[FOUR_KEY]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_event_button_press(self):
+        key = 'auriga_event_button_press'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[FOUR_KEY]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_event_limit_switch contains [ICON] [PORT] [SLOT]
-    def test_ext_i18n_auriga_all_auriga_event_limit_switch(self):
-        self.assertIn('auriga_event_limit_switch', self.test_dict)
-        test_data = self.test_dict['auriga_event_limit_switch']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[SLOT]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_event_limit_switch(self):
+        key = 'auriga_event_limit_switch'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[SLOT]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_detect_potentiometer contains [ICON] [PORT]
-    def test_ext_i18n_auriga_all_auriga_detect_potentiometer(self):
-        self.assertIn('auriga_detect_potentiometer', self.test_dict)
-        test_data = self.test_dict['auriga_detect_potentiometer']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_detect_potentiometer(self):
+        key = 'auriga_detect_potentiometer'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_detect_joystick contains [ICON] [PORT] [AXIS_X_Y]
-    def test_ext_i18n_auriga_all_auriga_detect_joystick(self):
-        self.assertIn('auriga_detect_joystick', self.test_dict)
-        test_data = self.test_dict['auriga_detect_joystick']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[AXIS_X_Y]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_detect_joystick(self):
+        key = 'auriga_detect_joystick'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[AXIS_X_Y]')
+        self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_detect_infrared contains [ICON] [PORT]
-    def test_ext_i18n_auriga_all_auriga_detect_infrared(self):
-        self.assertIn('auriga_detect_infrared', self.test_dict)
-        test_data = self.test_dict['auriga_detect_infrared']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_detect_infrared(self):
+        key = 'auriga_detect_infrared'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_icon(key)
 
 
 if __name__ == "__main__":
