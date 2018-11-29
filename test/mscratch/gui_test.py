@@ -38,6 +38,9 @@ class GuiTest(unittest.TestCase):
         self.assertIn('[ICON]', test_data, '\nkey: {0}, 缺少参数：[ICON]'.format(key))
         self.assertEqual(test_data.index('[ICON]'), 0, '\nkey: {0}, error:参数[ICON]必须在首位'.format(key))
 
+    def check_regular_expression(self, key, regular, hint):
+        test_data = self.test_dict[key]
+        self.assertRegexpMatches(test_data, regular, '\nkey:{0}, 正则表达式【 {1} 】匹配失败 \n\n\n'.format(key, hint))
 
 
 
@@ -51,13 +54,12 @@ class GuiTest(unittest.TestCase):
     def test_no_new_or_missing_items(self):
         self.assertEqual(len(self.test_dict), 194, "mscratch-i18n/gui/ 模块下新增或删减了翻译字段")
 
-    # mscratch-i18n/gui/gui.modal.inputTip contains （&<>'\"）"
+    # mscratch-i18n/gui/gui.modal.inputTip contains &<>'\"
     def test_modal_inputTip(self):
         key = 'gui.modal.inputTip'
         self.check_key_exists(key)
-        r = re.compile(r'.&.<.>.\'.\"')     # print(r.findall(test_data))
-        test_data = self.test_dict[key]
-        self.assertRegexpMatches(test_data, r, '\nkey:{0}, 缺少其中某个字符：{1}\n'.format(key, "&<>'\""))
+        r = re.compile(r'.*\&.*\<.*\>.*\'.*\".*')
+        self.check_regular_expression(key, r, '& < > \' \"')
 
     # mscratch-i18n/gui/gui.modal.confirmDeleteVariable contains %2 %1 
     def test_modal_confirmDeleteVariable(self):
@@ -65,8 +67,6 @@ class GuiTest(unittest.TestCase):
         self.check_key_exists(key)
         self.check_param(key, '%1')
         self.check_param(key, '%2')
-        # self.assertIn('%1', test_data, "缺少参数 %1，错误 key: " + key)
-        # self.assertIn('%2', test_data, "缺少参数 %2 ,错误 key: " + key)
 
 if __name__ == "__main__":
     # unittest.main(verbosity=2)

@@ -1,7 +1,6 @@
 # coding:utf-8
 # import requests
 import json
-import re
 import unittest
 import os, sys
 

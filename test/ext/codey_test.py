@@ -1,7 +1,6 @@
 # coding:utf-8
 # import requests
 import json
-import re
 import unittest
 import os, sys
 
@@ -60,21 +59,21 @@ class CodeyTest(unittest.TestCase):
     def test_meos_show_led_matrix_face_with_time(self):
         key = 'meos_show_led_matrix_face_with_time'
         self.check_key_exists(key)
-        self.check_icon(key);
+        self.check_icon(key)
         self.check_params(key, ['[PANEL]', '[TIME]'])
 
     # ext-i18n/codey/meos_show_led_matrix_face contains [ICON] [PANEL] 
     def test_meos_show_led_matrix_face(self):
         key = 'meos_show_led_matrix_face'
         self.check_key_exists(key)
-        self.check_icon(key);
+        self.check_icon(key)
         self.check_params(key, ['[PANEL]'])
 
     # ext-i18n/codey/meos_show_led_matrix_face_position contains [ICON] [PANEL] x: [AXIS-X]  y: [AXIS-Y]
     def test_meos_show_led_matrix_face_position(self):
         key = 'meos_show_led_matrix_face_position'
         self.check_key_exists(key)
-        self.check_icon(key);
+        self.check_icon(key)
         self.check_params(key, ['[PANEL]', 'x: [AXIS-X] y: [AXIS-Y]'])
 
     # ext-i18n/codey/meos_show_led_matrix_turn_off contains [ICON]
@@ -283,7 +282,6 @@ class CodeyTest(unittest.TestCase):
         key = 'meos_move_left_with_angle'
         test_data = self.test_dict[key]
         self.check_key_exists(key)
-        self.check_icon(key)
         self.check_params(key, ['[image_4]', '[ANGLE]', '[ICON]'])
         self.assertEqual(test_data.index('[image_4]'), 0, 'key: {0}, 参数[image_4]位置不正确，应该在首位')
     
@@ -292,7 +290,6 @@ class CodeyTest(unittest.TestCase):
         key = 'meos_move_right_with_angle'
         test_data = self.test_dict[key]
         self.check_key_exists(key)
-        self.check_icon(key)
         self.check_params(key, ['[image_5]', '[ANGLE]', '[ICON]'])
         self.assertEqual(test_data.index('[image_5]'), 0, 'key: {0}, 参数[image_5]位置不正确，应该在首位')
 
