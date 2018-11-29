@@ -1,7 +1,6 @@
 # coding:utf-8
 # import requests
 import json
-import re
 import unittest
 import os, sys
 
@@ -60,21 +59,21 @@ class CodeyTest(unittest.TestCase):
     def test_meos_show_led_matrix_face_with_time(self):
         key = 'meos_show_led_matrix_face_with_time'
         self.check_key_exists(key)
-        self.check_icon(key);
+        self.check_icon(key)
         self.check_params(key, ['[PANEL]', '[TIME]'])
 
     # ext-i18n/codey/meos_show_led_matrix_face contains [ICON] [PANEL] 
     def test_meos_show_led_matrix_face(self):
         key = 'meos_show_led_matrix_face'
         self.check_key_exists(key)
-        self.check_icon(key);
+        self.check_icon(key)
         self.check_params(key, ['[PANEL]'])
 
     # ext-i18n/codey/meos_show_led_matrix_face_position contains [ICON] [PANEL] x: [AXIS-X]  y: [AXIS-Y]
     def test_meos_show_led_matrix_face_position(self):
         key = 'meos_show_led_matrix_face_position'
         self.check_key_exists(key)
-        self.check_icon(key);
+        self.check_icon(key)
         self.check_params(key, ['[PANEL]', 'x: [AXIS-X] y: [AXIS-Y]'])
 
     # ext-i18n/codey/meos_show_led_matrix_turn_off contains [ICON]
