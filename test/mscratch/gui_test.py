@@ -38,6 +38,9 @@ class GuiTest(unittest.TestCase):
         self.assertIn('[ICON]', test_data, '\nkey: {0}, 缺少参数：[ICON]'.format(key))
         self.assertEqual(test_data.index('[ICON]'), 0, '\nkey: {0}, error:参数[ICON]必须在首位'.format(key))
 
+    def check_regular_expression(self, key, regular, hint):
+        test_data = self.test_dict[key]
+        self.assertRegexpMatches(test_data, regular, '\nkey:{0}, 正则表达式【 {1} 】匹配失败 \n\n\n'.format(key, hint))
 
 
 
@@ -56,8 +59,7 @@ class GuiTest(unittest.TestCase):
         key = 'gui.modal.inputTip'
         self.check_key_exists(key)
         r = re.compile(r'.*\&.*\<.*\>.*\'.*\".*')
-        test_data = self.test_dict[key]
-        self.assertRegexpMatches(test_data, r, '\nkey:{0}, 缺少【 {1} 】中的某个字符 \n\n\n'.format(key, " & < > ' \" "))
+        self.check_regular_expression(key, r, '& < > \' \"')
 
     # mscratch-i18n/gui/gui.modal.confirmDeleteVariable contains %2 %1 
     def test_modal_confirmDeleteVariable(self):
@@ -65,8 +67,6 @@ class GuiTest(unittest.TestCase):
         self.check_key_exists(key)
         self.check_param(key, '%1')
         self.check_param(key, '%2')
-        # self.assertIn('%1', test_data, "缺少参数 %1，错误 key: " + key)
-        # self.assertIn('%2', test_data, "缺少参数 %2 ,错误 key: " + key)
 
 if __name__ == "__main__":
     # unittest.main(verbosity=2)

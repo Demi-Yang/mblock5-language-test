@@ -28,6 +28,11 @@ class Mblock5Test(unittest.TestCase):
         test_data = self.test_dict[key]
         self.assertIn(param, test_data, "key: {0}, 缺少参数: {1}, value: {2} ".format(key, param, test_data))
 
+    def check_regular_expression(self, key, regular, hint):
+        test_data = self.test_dict[key]
+        self.assertRegexpMatches(test_data, regular, '\nkey:{0}, 正则表达式【 {1} 】匹配失败 \n\n\n'.format(key, hint))
+
+
     # mblock5-i18n/No empty value
     def test_no_empty_value(self):
         for key,value in self.test_dict.items():
@@ -55,10 +60,8 @@ class Mblock5Test(unittest.TestCase):
     def test_RENAME_ERR_CONTAIN_MSG(self):
         key='RENAME.ERR.CONTAIN.MSG'
         self.assertIn(key, self.test_dict, assert_msg.format(key, 'key缺失'))
-        test_data = self.test_dict[key]
         r = re.compile(r'.*\\.*\/.*\:.*\*.*\?.*\".*\<.*\>.*\|.*\@.*\,.*\#.*\$.*\&.*\(.*\).*')
-        print(r.findall(test_data))
-        self.assertRegexpMatches(test_data, r, '\nkey:{0}, 缺少【 {1} 】中的某个字符 \n\n\n'.format(key, "\\ / : * ? \" < > | @ , # $ & ( )"))
+        self.check_regular_expression(key, r, '\ / : * ? \" < > | @ , # $ & ( )')
     
     # mblock5-i18n/DEVICE.INSTALL.STATUS.FAIL contains {0}
     def test_DEVICE_INSTALL_STATUS_FAIL(self):
