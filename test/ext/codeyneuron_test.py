@@ -214,7 +214,7 @@ class CodeyNeuronTest(unittest.TestCase):
 
     # ext-i18n/codeyneuron/codey_neuron_event_pir contains [ICON] [ID]  
     def test_codey_neuron_event_pir(self):
-        key = 'test_ext_i18n_codey_neuron_event_pir'
+        key = 'codey_neuron_event_pir'
         self.check_key_exists(key)
         self.check_icon(key)
         self.check_params(key, ['[ID]'])
