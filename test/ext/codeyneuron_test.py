@@ -36,7 +36,7 @@ class CodeyNeuronTest(unittest.TestCase):
 
     def check_icon(self, key):
         test_data = self.test_dict[key]
-        self.assertIn('[ICON]', test_data, '\nkey: {0}, 缺少参数：[ICON]'.format(key))
+        self.assertIn('[ICON]', test_data, '\nkey: {0} \nvalue: {1} \n缺少参数：[ICON]'.format(key, test_data))
         self.assertEqual(test_data.index('[ICON]'), 0, '\nkey: {0}, error:参数[ICON]必须在首位'.format(key))
 
     # ext-i18n/codeyneuron/No empty value
@@ -302,9 +302,7 @@ class CodeyNeuronTest(unittest.TestCase):
 
 if __name__ == "__main__":
     # unittest.main(verbosity=2)
-
     # #此用法可以同时测试多个类
     suite1 = unittest.TestLoader().loadTestsFromTestCase(CodeyNeuronTest) 
-    
     # suite = unittest.TestSuite([suite1, suite2, suite3]) 
     unittest.TextTestRunner(verbosity=2).run(suite1)

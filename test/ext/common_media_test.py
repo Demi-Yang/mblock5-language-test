@@ -24,14 +24,14 @@ class CommonMediaTest(unittest.TestCase):
         cls.test_dict = test_file['ext-i18n/common/media']
 
     # ext-i18n/common/media/No empty value
-    def test_ext_i18n_cognitive_no_empty_value(self):
+    def test_common_media_no_empty_value(self):
         for key,value in self.test_dict.items():
-            self.assertIsNotNone(value)
-            self.assertNotEqual(value, '')
+            self.assertIsNotNone(value, 'ext-i18n/common/media 模块下存在未翻译的字段: {0}'.format(key))
+            self.assertNotEqual(value, 'ext-i18n/common/media 模块下存在未翻译的字段: {0}'.format(key))
 
     # ext-i18n/common/media/No new or missing items
-    def test_ext_i18n_common_media_no_new_or_missing_items(self):
-        self.assertEqual(len(self.test_dict), 8)
+    def test_common_media_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 8, 'ext-i18n/common/media 模块下新增或删减了新的字段，测试用例需增减~')
 
 if __name__ == "__main__":
     # unittest.main(verbosity=2)

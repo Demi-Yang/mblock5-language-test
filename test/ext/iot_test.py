@@ -22,78 +22,81 @@ class IotTest(unittest.TestCase):
         f = open(cls.path, 'r')
         test_file = data_handle.byteify(json.load(f))
         cls.test_dict = test_file['ext-i18n/iot']
+    
+    def check_key_exists(self, key):
+        self.assertIn(key, self.test_dict, '\n缺少key: {0}'.format(key))
+
+    def check_expect_value(self, key, expect_value):
+        test_data = self.test_dict[key]
+        self.assertEqual(test_data, expect_value, '\nkey: {0}, value:{1}, error: 值不等于{2}, '.format(key, test_data, expect_value))
+
+    def check_params(self, key, params):
+        test_data = self.test_dict[key]
+        for p in params:
+            self.assertIn(p, test_data, '\nkey: {0} \nvalue:{1} \n缺少参数：{2}'.format(key, test_data, p))
 
     # ext-i18n/iot/No empty value
-    def test_ext_i18n_iot_no_empty_value(self):
+    def test_iot_no_empty_value(self):
         for key,value in self.test_dict.items():
-            self.assertIsNotNone(value)
-            self.assertNotEqual(value, '')
+            self.assertIsNotNone(value, 'iot 模块下存在未翻译的字段: {0}'.format(key))
+            self.assertNotEqual(value, 'iot 模块下存在未翻译的字段: {0}'.format(key))
 
     # ext-i18n/iot/No new or missing items
-    def test_ext_i18n_iot_no_new_or_missing_items(self):
-        self.assertEqual(len(self.test_dict), 66)
+    def test_iot_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 66, 'iot 模块下新增或删减了新的字段，测试用例需增减~')
 
     # mblock5-i18n/extensionName equals IoT
-    def test_mblock5_i18n_extensionName_equals_IoT(self):
-        self.assertIn('extensionName', self.test_dict)
-        self.assertEqual(self.test_dict['extensionName'], "IoT")
+    def test_extensionName(self):
+        key = 'extensionName'
+        self.check_key_exists(key)
+        self.check_expect_value(key, "IoT")
         
     # ext-i18n/iot/iot_connect_network contains [SSID] [PASSWORD] 
-    def test_ext_i18n_iot_connect_network(self):
-        self.assertIn('iot_connect_network', self.test_dict)
-        test_data = self.test_dict['iot_connect_network']
-        self.assertIn('[SSID]', test_data)
-        self.assertIn('[PASSWORD]', test_data)
+    def test_iot_connect_network(self):
+        key = 'iot_connect_network'
+        self.check_key_exists(key)
+        self.check_params(key, ['[SSID]', '[PASSWORD]'])
 
     # ext-i18n/iot/iot_connect_network_password_value equals 12345678 
-    def test_ext_i18n_iot_connect_network_password_value(self):
-        self.assertIn('iot_connect_network_password_value', self.test_dict)
-        self.assertEqual(self.test_dict['iot_connect_network_password_value'], '12345678')
+    def test_iot_connect_network_password_value(self):
+        self.check_key_exists('iot_connect_network_password_value')
+        self.check_expect_value('iot_connect_network_password_value', '12345678')
 
     # ext-i18n/iot/iot_weather contains [LOCATION] [WEATHER_TYPE] 
-    def test_ext_i18n_iot_weather(self):
-        self.assertIn('iot_weather', self.test_dict)
-        test_data = self.test_dict['iot_weather']
-        self.assertIn('[LOCATION]', test_data)
-        self.assertIn('[WEATHER_TYPE]', test_data)
+    def test_iot_weather(self):
+        key = 'iot_weather'
+        self.check_key_exists(key)
+        self.check_params(key, ['[LOCATION]', '[WEATHER_TYPE]'])
 
     # ext-i18n/iot/iot_air contains [LOCATION] [WEATHER_TYPE] 
-    def test_ext_i18n_iot_air(self):
-        self.assertIn('iot_air', self.test_dict)
-        test_data = self.test_dict['iot_air']
-        self.assertIn('[LOCATION]', test_data)
-        self.assertIn('[WEATHER_TYPE]', test_data)
+    def test_iot_air(self):
+        key = 'iot_air'
+        self.check_key_exists(key)
+        self.check_params(key, ['[LOCATION]', '[WEATHER_TYPE]'])
 
     # ext-i18n/iot/iot_sun contains [LOCATION] [WEATHER_TYPE] [TIME] 
-    def test_ext_i18n_iot_sun(self):
-        self.assertIn('iot_sun', self.test_dict)
-        test_data = self.test_dict['iot_sun']
-        self.assertIn('[LOCATION]', test_data)
-        self.assertIn('[WEATHER_TYPE]', test_data)
-        self.assertIn('[TIME]', test_data)
+    def test_iot_sun(self):
+        key = 'iot_sun'
+        self.check_key_exists(key)
+        self.check_params(key, ['[LOCATION]', '[WEATHER_TYPE]', '[TIME]'])
 
     # ext-i18n/iot/data_addtolist_cloudlist contains [VALUE] [ICON] [CLOUD_VARIABLE] 
-    def test_ext_i18n_data_addtolist_cloudlist(self):
-        self.assertIn('data_addtolist_cloudlist', self.test_dict)
-        test_data = self.test_dict['data_addtolist_cloudlist']
-        self.assertIn('[VALUE]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertIn('[CLOUD_VARIABLE]', test_data)
+    def test_data_addtolist_cloudlist(self):
+        key = 'data_addtolist_cloudlist'
+        self.check_key_exists(key)
+        self.check_params(key, ['[VALUE]', '[ICON]', '[CLOUD_VARIABLE]'])
 
     # ext-i18n/iot/data_itemoflist_cloudlist contains [VALUE] [ICON] [CLOUD_VARIABLE] 
-    def test_ext_i18n_data_itemoflist_cloudlist(self):
-        self.assertIn('data_itemoflist_cloudlist', self.test_dict)
-        test_data = self.test_dict['data_itemoflist_cloudlist']
-        self.assertIn('[VALUE]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertIn('[CLOUD_VARIABLE]', test_data)
+    def test_data_itemoflist_cloudlist(self):
+        key = 'data_itemoflist_cloudlist'
+        self.check_key_exists(key)
+        self.check_params(key, ['[VALUE]', '[ICON]', '[CLOUD_VARIABLE]'])
 
     # ext-i18n/iot/data_lengthoflist_cloudlist contains [ICON] [CLOUD_VARIABLE] 
-    def test_ext_i18n_data_lengthoflist_cloudlist(self):
-        self.assertIn('data_lengthoflist_cloudlist', self.test_dict)
-        test_data = self.test_dict['data_lengthoflist_cloudlist']
-        self.assertIn('[ICON]', test_data)
-        self.assertIn('[CLOUD_VARIABLE]', test_data)
+    def test_data_lengthoflist_cloudlist(self):
+        key = 'data_lengthoflist_cloudlist'
+        self.check_key_exists(key)
+        self.check_params(key, ['[ICON]',  '[CLOUD_VARIABLE]'])
 
     # # ext-i18n/iot/ifttt_pub contains [MESSAGE] [TRIGGER] 
     # def test_ext_i18n_ifttt_pub(self):
