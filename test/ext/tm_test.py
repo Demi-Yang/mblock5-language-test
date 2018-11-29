@@ -23,27 +23,36 @@ class TMTest(unittest.TestCase):
         test_file = data_handle.byteify(json.load(f))
         cls.test_dict = test_file['ext-i18n/tm']
 
+    def check_key_exists(self, key):
+        self.assertIn(key, self.test_dict, '\n缺少key: {0}'.format(key))
+
+    def check_param(self, key, param):
+        test_data = self.test_dict[key]
+        self.assertIn(param, test_data, '\nkey:{0}, 缺少参数：{1}'.format(key, param))
+
+
+
     # ext-i18n/tm/No empty value
-    def test_ext_i18n_tm_no_empty_value(self):
+    def test_tm_no_empty_value(self):
         for key,value in self.test_dict.items():
-            self.assertIsNotNone(value)
-            self.assertNotEqual(value, '')
+            self.assertIsNotNone(value, "缺少翻译的字段：" + key)
+            self.assertNotEqual(value, '', "缺少翻译的字段：" + key)
 
     # ext-i18n/tm/No new or missing items
-    def test_ext_i18n_tm_no_new_or_missing_items(self):
-        self.assertEqual(len(self.test_dict), 33)
+    def test_tm_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 33, "tm 模块下存在新增或者删减的字段，需要修改测试用例！")
 
     # ext-i18n/tm/visual_recognition_confidence contains [sample_index]
-    def test_ext_i18n_visual_recognition_confidence(self):
-        self.assertIn('visual_recognition_confidence', self.test_dict)
-        test_data = self.test_dict['visual_recognition_confidence']
-        self.assertIn('[sample_index]', test_data)
+    def test_visual_recognition_confidence(self):
+        key = 'visual_recognition_confidence'
+        self.check_key_exists(key)
+        self.check_param(key, '[sample_index]')
         
     # ext-i18n/tm/visual_recognition_result_is contains [sample_index]
-    def test_ext_i18n_visual_recognition_result_is(self):
-        self.assertIn('visual_recognition_result_is', self.test_dict)
-        test_data = self.test_dict['visual_recognition_result_is']
-        self.assertIn('[sample_index]', test_data)
+    def test_visual_recognition_result_is(self):
+        key = 'visual_recognition_result_is'
+        self.check_key_exists(key)
+        self.check_param(key, '[sample_index]')
 
 
 if __name__ == "__main__":
