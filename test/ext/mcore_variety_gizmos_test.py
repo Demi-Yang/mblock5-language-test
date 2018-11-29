@@ -22,76 +22,89 @@ class McoreVarietyGizmosTest(unittest.TestCase):
         test_file = data_handle.byteify(json.load(f))
         cls.test_dict = test_file['ext-i18n/mcore_variety_gizmos']
 
+    def check_key_exists(self, key):
+        self.assertIn(key, self.test_dict, '\n缺少key: {0}'.format(key))
+
+    def check_expect_value(self, key, expect_value):
+        test_data = self.test_dict[key]
+        self.assertEqual(test_data, expect_value, '\nkey: {0},\n value:{1},\n error: 值不等于{2}, '.format(key, test_data, expect_value))
+
+    def check_param(self, key, param):
+        test_data = self.test_dict[key]
+        self.assertIn(param, test_data, '\nkey:{0}, 缺少参数：{1}'.format(key, param))
+
+    def check_icon(self, key):
+        test_data = self.test_dict[key]
+        self.assertIn('[ICON]', test_data, '\nkey: {0}, 缺少参数：[ICON]'.format(key))
+        self.assertEqual(test_data.index('[ICON]'), 0, '\nkey: {0}, error:参数[ICON]必须在首位'.format(key))
+
+
+
+
     # ext-i18n/mcore_variety_gizmos/No empty value
-    def test_ext_i18n_mcore_variety_gizmos_no_empty_value(self):
+    def test_no_empty_value(self):
         for key,value in self.test_dict.items():
-            self.assertIsNotNone(value)
-            self.assertNotEqual(value, '')
+            self.assertIsNotNone(value, "缺少翻译的字段：" + key)
+            self.assertNotEqual(value, '', "缺少翻译的字段：" + key)
 
     # ext-i18n/mcore_variety_gizmos/No new or missing items
-    def test_ext_i18n_mcore_variety_gizmos_no_new_or_missing_items(self):
-        self.assertEqual(len(self.test_dict), 22)
+    def test_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 22, "mcore_variety_gizmos 模块下存在新增或者删减的字段，需要修改测试用例！")
 
     # ext-i18n/mcore_variety_gizmos/mcore_show_external_led_time contains [ICON] [PORT] [LED_POSTION] [COLOR] [TIME] 
-    def test_ext_i18n_mcore_show_external_led_time(self):
-        self.assertIn('mcore_show_external_led_time', self.test_dict)
-        test_data = self.test_dict['mcore_show_external_led_time']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[LED_POSTION]', test_data)
-        self.assertIn('[COLOR]', test_data)
-        self.assertIn('[TIME]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_mcore_show_external_led_time(self):
+        key = 'mcore_show_external_led_time'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[LED_POSTION]')
+        self.check_param(key, '[COLOR]')
+        self.check_param(key, '[TIME]')
+        self.check_icon(key)
 
     # ext-i18n/mcore_variety_gizmos/mcore_show_external_led contains [ICON] [PORT] [LED_POSTION] [COLOR] 
-    def test_ext_i18n_mcore_show_external_led(self):
-        self.assertIn('mcore_show_external_led', self.test_dict)
-        test_data = self.test_dict['mcore_show_external_led']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[LED_POSTION]', test_data)
-        self.assertIn('[COLOR]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_mcore_show_external_led(self):
+        key = 'mcore_show_external_led'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[LED_POSTION]')
+        self.check_param(key, '[COLOR]')
+        self.check_icon(key)
 
     # ext-i18n/mcore_variety_gizmos/mcore_show_external_led_rgb contains [ICON] [PORT] [LED_POSTION] [R] [G] [B]
-    def test_ext_i18n_mcore_show_external_led_rgb(self):
-        self.assertIn('mcore_show_external_led_rgb', self.test_dict)
-        test_data = self.test_dict['mcore_show_external_led_rgb']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[LED_POSTION]', test_data)
-        self.assertIn('[R]', test_data)
-        self.assertIn('[G]', test_data)
-        self.assertIn('[B]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_mcore_show_external_led_rgb(self):
+        key = 'mcore_show_external_led_rgb'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[LED_POSTION]')
+        self.check_param(key, '[R]')
+        self.check_param(key, '[G]')
+        self.check_param(key, '[B]')
+        self.check_icon(key)
 
     # ext-i18n/mcore_variety_gizmos/mcore_run_servo contains [ICON] [PORT][SLOT][DEGREE]
-    def test_ext_i18n_mcore_run_servo(self):
-        self.assertIn('mcore_run_servo', self.test_dict)
-        test_data = self.test_dict['mcore_run_servo']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[SLOT]', test_data)
-        self.assertIn('[DEGREE]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_mcore_run_servo(self):
+        key = 'mcore_run_servo'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[SLOT]')
+        self.check_param(key, '[DEGREE]')
+        self.check_icon(key)
 
     # ext-i18n/mcore_variety_gizmos/mcore_show_7segments_number contains [ICON] [PORT] [NUMBER]
-    def test_ext_i18n_auriga_variety_gizmos_mcore_show_7segments_number(self):
-        self.assertIn('mcore_show_7segments_number', self.test_dict)
-        test_data = self.test_dict['mcore_show_7segments_number']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[NUMBER]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_auriga_variety_gizmos_mcore_show_7segments_number(self):
+        key = 'mcore_show_7segments_number'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[NUMBER]')
+        self.check_icon(key)
 
     # ext-i18n/mcore_variety_gizmos/mcore_event_limit_switch contains [ICON] [PORT][SLOT]
-    def test_ext_i18n_mcore_event_limit_switch(self):
-        self.assertIn('mcore_event_limit_switch', self.test_dict)
-        test_data = self.test_dict['mcore_event_limit_switch']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[SLOT]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_mcore_event_limit_switch(self):
+        key = 'mcore_event_limit_switch'
+        self.check_key_exists(key)
+        self.check_param(key, '[PORT]')
+        self.check_param(key, '[SLOT]')
+        self.check_icon(key)
 
 
 
