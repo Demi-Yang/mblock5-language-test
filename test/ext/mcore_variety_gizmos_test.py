@@ -25,10 +25,6 @@ class McoreVarietyGizmosTest(unittest.TestCase):
     def check_key_exists(self, key):
         self.assertIn(key, self.test_dict, '\n缺少key: {0}'.format(key))
 
-    def check_expect_value(self, key, expect_value):
-        test_data = self.test_dict[key]
-        self.assertEqual(test_data, expect_value, '\nkey: {0},\n value:{1},\n error: 值不等于{2}, '.format(key, test_data, expect_value))
-
     def check_param(self, key, param):
         test_data = self.test_dict[key]
         self.assertIn(param, test_data, '\nkey:{0}, 缺少参数：{1}'.format(key, param))
