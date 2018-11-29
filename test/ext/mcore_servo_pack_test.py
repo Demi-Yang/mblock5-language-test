@@ -22,59 +22,57 @@ class McoreServoPackTest(unittest.TestCase):
         f = open(cls.path, 'r')
         test_file = data_handle.byteify(json.load(f))
         cls.test_dict = test_file['ext-i18n/mcore_servo_pack']
+    
+    def check_key_exists(self, key):
+        self.assertIn(key, self.test_dict, '\n缺少key: {0}'.format(key))
+
+    def check_params(self, key, params):
+        test_data = self.test_dict[key]
+        for p in params:
+            self.assertIn(p, test_data, '\nkey: {0}, value: {1}, 缺少参数:{2}'.format(key, test_data, p))
+
+    def check_icon(self, key):
+        test_data = self.test_dict[key]
+        self.assertIn('[ICON]', test_data, '\nkey: {0}, value: {1}, 缺少参数：[ICON]'.format(key, test_data))
+        self.assertEqual(test_data.index('[ICON]'), 0, '\nkey: {0}, 参数[ICON]必须在首位'.format(key))
 
     # ext-i18n/mcore_servo_pack/No empty value
-    def test_ext_i18n_mcore_servo_pack_no_empty_value(self):
+    def test_mcore_servo_pack_no_empty_value(self):
         for key,value in self.test_dict.items():
-            self.assertIsNotNone(value)
-            self.assertNotEqual(value, '')
+            self.assertIsNotNone(value, "缺少翻译的字段：" + key)
+            self.assertNotEqual(value, '', "缺少翻译的字段：" + key)
 
     # ext-i18n/mcore_servo_pack/No new or missing items
-    def test_ext_i18n_mcore_servo_pack_no_new_or_missing_items(self):
-        self.assertEqual(len(self.test_dict), 20)
+    def test_mcore_servo_pack_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 20, 'ext-i18n/mcore_servo_pack 模块下新增或删减了新的字段，测试用例需增减~')
 
     # ext-i18n/mcore_servo_pack/mcore_show_external_led_time contains [ICON] [PORT] [LED_POSTION] [COLOR] [TIME] 
-    def test_ext_i18n_mcore_show_external_led_time(self):
-        self.assertIn('mcore_show_external_led_time', self.test_dict)
-        test_data = self.test_dict['mcore_show_external_led_time']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[LED_POSTION]', test_data)
-        self.assertIn('[COLOR]', test_data)
-        self.assertIn('[TIME]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_mcore_show_external_led_time(self):
+        key = 'mcore_show_external_led_time'
+        self.check_key_exists(key)
+        self.check_icon(key)
+        self.check_params(key, ['[PORT]', '[LED_POSTION]', '[COLOR]', '[TIME]'])
 
     # ext-i18n/mcore_servo_pack/mcore_show_external_led contains [ICON] [PORT] [LED_POSTION] [COLOR] 
-    def test_ext_i18n_mcore_show_external_led(self):
-        self.assertIn('mcore_show_external_led', self.test_dict)
-        test_data = self.test_dict['mcore_show_external_led']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[LED_POSTION]', test_data)
-        self.assertIn('[COLOR]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_mcore_show_external_led(self):
+        key = 'mcore_show_external_led'
+        self.check_key_exists(key)
+        self.check_icon(key)
+        self.check_params(key, ['[PORT]', '[LED_POSTION]', '[COLOR]'])
 
     # ext-i18n/mcore_servo_pack/mcore_show_external_led_rgb contains [ICON] [PORT] [LED_POSTION] [R] [G] [B]
-    def test_ext_i18n_mcore_show_external_led_rgb(self):
-        self.assertIn('mcore_show_external_led_rgb', self.test_dict)
-        test_data = self.test_dict['mcore_show_external_led_rgb']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[LED_POSTION]', test_data)
-        self.assertIn('[R]', test_data)
-        self.assertIn('[G]', test_data)
-        self.assertIn('[B]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_mcore_show_external_led_rgb(self):
+        key = 'mcore_show_external_led_rgb'
+        self.check_key_exists(key)
+        self.check_icon(key)
+        self.check_params(key, ['[PORT]', '[LED_POSTION]', '[R]', '[G]', '[B]'])
 
     # ext-i18n/mcore_servo_pack/mcore_run_servo contains [ICON] [PORT][SLOT][DEGREE]
-    def test_ext_i18n_mcore_run_servo(self):
-        self.assertIn('mcore_run_servo', self.test_dict)
-        test_data = self.test_dict['mcore_run_servo']
-        self.assertIn('[PORT]', test_data)
-        self.assertIn('[SLOT]', test_data)
-        self.assertIn('[DEGREE]', test_data)
-        self.assertIn('[ICON]', test_data)
-        self.assertEqual(test_data.index('[ICON]'), 0)
+    def test_mcore_run_servo(self):
+        key = 'mcore_run_servo'
+        self.check_key_exists(key)
+        self.check_icon(key)
+        self.check_params(key, ['[PORT]', '[SLOT]'])
 
 
 
