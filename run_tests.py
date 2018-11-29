@@ -17,7 +17,7 @@ if __name__ == '__main__':
     if os.access('./FORMAT_RESULT/'+lang+'.json', os.F_OK):
         filename = './report/'+lang+'_'+'last_result.html'
         fp = open(filename, 'wb')
-        runner = HTMLTestRunner(stream=fp, title='Passport3 System Inteface Test Report', description="Implementation Example with:")
+        runner = HTMLTestRunner(stream=fp, title='mBlock Translate CheckList Test Report', description="Implementation Example with:")
         runner.run(discover)
         fp.close()
     elif lang == 'all':
