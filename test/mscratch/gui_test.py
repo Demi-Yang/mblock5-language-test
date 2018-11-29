@@ -51,13 +51,13 @@ class GuiTest(unittest.TestCase):
     def test_no_new_or_missing_items(self):
         self.assertEqual(len(self.test_dict), 194, "mscratch-i18n/gui/ 模块下新增或删减了翻译字段")
 
-    # mscratch-i18n/gui/gui.modal.inputTip contains （&<>'\"）"
+    # mscratch-i18n/gui/gui.modal.inputTip contains &<>'\"
     def test_modal_inputTip(self):
         key = 'gui.modal.inputTip'
         self.check_key_exists(key)
-        r = re.compile(r'.&.<.>.\'.\"')     # print(r.findall(test_data))
+        r = re.compile(r'.*\&.*\<.*\>.*\'.*\".*')
         test_data = self.test_dict[key]
-        self.assertRegexpMatches(test_data, r, '\nkey:{0}, 缺少其中某个字符：{1}\n'.format(key, "&<>'\""))
+        self.assertRegexpMatches(test_data, r, '\nkey:{0}, 缺少【 {1} 】中的某个字符 \n\n\n'.format(key, " & < > ' \" "))
 
     # mscratch-i18n/gui/gui.modal.confirmDeleteVariable contains %2 %1 
     def test_modal_confirmDeleteVariable(self):

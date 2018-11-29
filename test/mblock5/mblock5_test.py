@@ -9,7 +9,7 @@ parentdir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fi
 sys.path.insert(0, parentdir)
 
 from util import data_handle
-assert_msg = "key: {0}, error: {1}";
+assert_msg = "key: {0}, error: {1}"
 
 # ======================  mblock5項目-翻译检查  =======================
 
@@ -56,9 +56,9 @@ class Mblock5Test(unittest.TestCase):
         key='RENAME.ERR.CONTAIN.MSG'
         self.assertIn(key, self.test_dict, assert_msg.format(key, 'key缺失'))
         test_data = self.test_dict[key]
-        r = re.compile(r'\\./:.\*.\\?.".<.>.\|.@.\,.#.\$.\&.\(.\).')
-        # print(r.findall(test_data))
-        self.assertRegexpMatches(test_data, r)
+        r = re.compile(r'.*\\.*\/.*\:.*\*.*\?.*\".*\<.*\>.*\|.*\@.*\,.*\#.*\$.*\&.*\(.*\).*')
+        print(r.findall(test_data))
+        self.assertRegexpMatches(test_data, r, '\nkey:{0}, 缺少【 {1} 】中的某个字符 \n\n\n'.format(key, "\\ / : * ? \" < > | @ , # $ & ( )"))
     
     # mblock5-i18n/DEVICE.INSTALL.STATUS.FAIL contains {0}
     def test_DEVICE_INSTALL_STATUS_FAIL(self):

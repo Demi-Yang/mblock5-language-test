@@ -283,7 +283,6 @@ class CodeyTest(unittest.TestCase):
         key = 'meos_move_left_with_angle'
         test_data = self.test_dict[key]
         self.check_key_exists(key)
-        self.check_icon(key)
         self.check_params(key, ['[image_4]', '[ANGLE]', '[ICON]'])
         self.assertEqual(test_data.index('[image_4]'), 0, 'key: {0}, 参数[image_4]位置不正确，应该在首位')
     
@@ -292,7 +291,6 @@ class CodeyTest(unittest.TestCase):
         key = 'meos_move_right_with_angle'
         test_data = self.test_dict[key]
         self.check_key_exists(key)
-        self.check_icon(key)
         self.check_params(key, ['[image_5]', '[ANGLE]', '[ICON]'])
         self.assertEqual(test_data.index('[image_5]'), 0, 'key: {0}, 参数[image_5]位置不正确，应该在首位')
 
