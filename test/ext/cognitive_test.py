@@ -22,60 +22,66 @@ class CognitiveTest(unittest.TestCase):
         f = open(cls.path, 'r')
         test_file = data_handle.byteify(json.load(f))
         cls.test_dict = test_file['ext-i18n/cognitive']
+    
+    def check_key_exists(self, key):
+        self.assertIn(key, self.test_dict, '\n缺少key: {0}'.format(key))
+
+    def check_params(self, key, params):
+        test_data = self.test_dict[key]
+        for p in params:
+            self.assertIn(p, test_data, '\nkey: {0} \nvalue:{1} \n缺少参数：{2}'.format(key, test_data, p))
 
     # ext-i18n/cognitive/No empty value
-    def test_ext_i18n_cognitive_no_empty_value(self):
+    def test_cognitive_no_empty_value(self):
         for key,value in self.test_dict.items():
-            self.assertIsNotNone(value)
-            self.assertNotEqual(value, '')
+            self.assertIsNotNone(value, 'cognitive 模块下存在未翻译的字段: {0}'.format(key))
+            self.assertNotEqual(value, 'cognitive 模块下存在未翻译的字段: {0}'.format(key))
 
     # ext-i18n/cognitive/No new or missing items
-    def test_ext_i18n_cognitive_no_new_or_missing_items(self):
-        self.assertEqual(len(self.test_dict), 46)
+    def test_cognitive_no_new_or_missing_items(self):
+        self.assertEqual(len(self.test_dict), 46, 'cognitive 模块下新增或删减了新的字段，测试用例需增减~')
 
     # ext-i18n/cognitive/beginSpeechToText contains [LANGUAGE]、[TIMER]
-    def test_ext_i18n_beginSpeechToText(self):
-        self.assertIn('beginSpeechToText', self.test_dict)
-        test_data = self.test_dict['beginSpeechToText']
-        self.assertIn('[LANGUAGE]', test_data)
-        self.assertIn('[TIMER]', test_data)
+    def test_beginSpeechToText(self):
+        key = 'beginSpeechToText'
+        self.check_key_exists(key)
+        self.check_params(key, ['[LANGUAGE]', '[TIMER]'])
 
     # ext-i18n/cognitive/beginFaceDetection contains [TIMER]
-    def test_ext_i18n_beginFaceDetection(self):
-        self.assertIn('beginFaceDetection', self.test_dict)
-        test_data = self.test_dict['beginFaceDetection']
-        self.assertIn('[TIMER]', test_data)
+    def test_beginFaceDetection(self):
+        key = 'beginFaceDetection'
+        self.check_key_exists(key)
+        self.check_params(key, ['[TIMER]'])
 
     # ext-i18n/cognitive/beginEmotionRecognition contains [TIMER]
-    def test_ext_i18n_beginEmotionRecognition(self):
-        self.assertIn('beginEmotionRecognition', self.test_dict)
-        test_data = self.test_dict['beginEmotionRecognition']
-        self.assertIn('[TIMER]', test_data)
+    def test_beginEmotionRecognition(self):
+        key = 'beginEmotionRecognition'
+        self.check_key_exists(key)
+        self.check_params(key, ['[TIMER]'])
 
     # ext-i18n/cognitive/emotionValue contains [TYPE]
-    def test_ext_i18n_emotionValue(self):
-        self.assertIn('emotionValue', self.test_dict)
-        test_data = self.test_dict['emotionValue']
-        self.assertIn('[TYPE]', test_data)
+    def test_emotionValue(self):
+        key = 'emotionValue'
+        self.check_key_exists(key)
+        self.check_params(key, ['[TYPE]'])
 
     # ext-i18n/cognitive/emotionType contains [TYPE]
-    def test_ext_i18n_emotionType(self):
-        self.assertIn('emotionType', self.test_dict)
-        test_data = self.test_dict['emotionType']
-        self.assertIn('[TYPE]', test_data)
+    def test_emotionType(self):
+        key = 'emotionType'
+        self.check_key_exists(key)
+        self.check_params(key, ['[TYPE]'])
 
     # ext-i18n/cognitive/beginImageToText contains [LANGUAGE]、[TIMER]
-    def test_ext_i18n_beginImageToText(self):
-        self.assertIn('beginImageToText', self.test_dict)
-        test_data = self.test_dict['beginImageToText']
-        self.assertIn('[LANGUAGE]', test_data)
-        self.assertIn('[TIMER]', test_data)
+    def test_beginImageToText(self):
+        key = 'beginImageToText'
+        self.check_key_exists(key)
+        self.check_params(key, ['[LANGUAGE]', '[TIMER]'])
 
     # ext-i18n/cognitive/beginHandwrittenToText contains [TIMER]
-    def test_ext_i18n_beginHandwrittenToText(self):
-        self.assertIn('beginHandwrittenToText', self.test_dict)
-        test_data = self.test_dict['beginHandwrittenToText']
-        self.assertIn('[TIMER]', test_data)
+    def test_beginHandwrittenToText(self):
+        key = 'beginHandwrittenToText'
+        self.check_key_exists(key)
+        self.check_params(key, ['[TIMER]'])
 
 
 

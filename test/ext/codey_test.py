@@ -33,11 +33,11 @@ class CodeyTest(unittest.TestCase):
     def check_params(self, key, params):
         test_data = self.test_dict[key]
         for p in params:
-            self.assertIn(p, test_data, '\nkey:{0}, 缺少参数：{1}'.format(key, p))
+            self.assertIn(p, test_data, '\nkey: {0}, value: {1}, 缺少参数：[ICON]'.format(key, p))
 
     def check_icon(self, key):
         test_data = self.test_dict[key]
-        self.assertIn('[ICON]', test_data, '\nkey: {0}, 缺少参数：[ICON]'.format(key))
+        self.assertIn('[ICON]', test_data, '\nkey: {0} \nvalue: {1} \n缺少参数：[ICON]'.format(key, test_data))
         self.assertEqual(test_data.index('[ICON]'), 0, '\nkey: {0}, error:参数[ICON]必须在首位'.format(key))
 
     # ext-i18n/codey/No empty value
