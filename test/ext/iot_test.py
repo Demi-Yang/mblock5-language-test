@@ -33,13 +33,13 @@ class IotTest(unittest.TestCase):
     def check_params(self, key, params):
         test_data = self.test_dict[key]
         for p in params:
-            self.assertIn(p, test_data, '\nkey: {0} \nvalue:{1} \n缺少参数：{2}'.format(key, test_data, p))
+            self.assertIn(p, test_data, '\nkey: {0}, value:{1}, 缺少参数：{2}'.format(key, test_data, p))
 
     # ext-i18n/iot/No empty value
     def test_iot_no_empty_value(self):
         for key,value in self.test_dict.items():
-            self.assertIsNotNone(value, 'iot 模块下存在未翻译的字段: {0}'.format(key))
-            self.assertNotEqual(value, 'iot 模块下存在未翻译的字段: {0}'.format(key))
+            self.assertIsNotNone(value, "缺少翻译的字段：" + key)
+            self.assertNotEqual(value, '', "缺少翻译的字段：" + key)
 
     # ext-i18n/iot/No new or missing items
     def test_iot_no_new_or_missing_items(self):

@@ -26,8 +26,8 @@ class CommonMediaTest(unittest.TestCase):
     # ext-i18n/common/media/No empty value
     def test_common_media_no_empty_value(self):
         for key,value in self.test_dict.items():
-            self.assertIsNotNone(value, 'ext-i18n/common/media 模块下存在未翻译的字段: {0}'.format(key))
-            self.assertNotEqual(value, 'ext-i18n/common/media 模块下存在未翻译的字段: {0}'.format(key))
+            self.assertIsNotNone(value, "缺少翻译的字段：" + key)
+            self.assertNotEqual(value, '', "缺少翻译的字段：" + key)
 
     # ext-i18n/common/media/No new or missing items
     def test_common_media_no_new_or_missing_items(self):
