@@ -138,7 +138,7 @@ class McoreTest(unittest.TestCase):
         key = 'mcore_show_led_rgb'
         self.check_key_exists(key)
         self.check_icon(key)
-        self.check_params(key, ['[LED_POSTION]', '[COLOR]', '[R]','[G]','[B]'])
+        self.check_params(key, ['[LED_POSTION]', '[R]','[G]','[B]'])
 
     # ext-i18n/mcore/mcore_sound_play_note contains [ICON] [NOTE] [BEAT] 
     def test_mcore_sound_play_note(self):
