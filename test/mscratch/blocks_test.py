@@ -26,16 +26,16 @@ class BlocksTest(unittest.TestCase):
 
     def check_expect_value(self, key, expect_value):
         test_data = self.test_dict[key]
-        self.assertEqual(test_data, expect_value, '\nkey: {0},\n value:{1},\n error: 值不等于{2}, '.format(key, test_data, expect_value))
+        self.assertEqual(test_data, expect_value, '\nkey: {0} \nvalue: {1} \n error: 值不等于 {2}, '.format(key, test_data, expect_value))
 
     def check_param(self, key, param):
         test_data = self.test_dict[key]
-        self.assertIn(param, test_data, '\nkey:{0}, 缺少参数：{1}'.format(key, param))
+        self.assertIn(param, test_data, '\nkey: {0} \nvalue: {1} \n缺少参数：{2}'.format(key, test_data, param))
 
     def check_icon(self, key):
         test_data = self.test_dict[key]
-        self.assertIn('[ICON]', test_data, '\nkey: {0}, 缺少参数：[ICON]'.format(key))
-        self.assertEqual(test_data.index('[ICON]'), 0, '\nkey: {0}, error:参数[ICON]必须在首位'.format(key))
+        self.assertIn('[ICON]', test_data, '\nkey: {0} \nvalue: {1} \n缺少参数： [ICON]'.format(key, test_data))
+        self.assertEqual(test_data.index('[ICON]'), 0, '\nkey: {0} \nvalue: {1} \nerror: 参数[ICON]必须在首位'.format(key, test_data))
 
 
 
@@ -43,12 +43,12 @@ class BlocksTest(unittest.TestCase):
     # mscratch-i18n/blocks/No empty value
     def test_no_empty_value(self):
         for key,value in self.test_dict.items():
-            self.assertIsNotNone(value, "该字段的翻译为空，错误 key: " + key)
-            self.assertNotEqual(value, '', "该字段的翻译为空，错误 key: " + key)
+            self.assertIsNotNone(value, "\n该字段的翻译为空，错误 key: " + key)
+            self.assertNotEqual(value, '', "\n该字段的翻译为空，错误 key: " + key)
 
     # mscratch-i18n/blocks/No new or missing items
     def test_no_new_or_missing_items(self):
-        self.assertEqual(len(self.test_dict), 301, "mscratch-i18n/blocks/ 模块下新增或删减了翻译字段")
+        self.assertEqual(len(self.test_dict), 301, "\nmscratch-i18n/blocks/ 模块下新增或删减了翻译字段")
 
     # mscratch-i18n/blocks/CONTROL_REPEAT contains %2 %1 
     def test_CONTROL_REPEAT(self):

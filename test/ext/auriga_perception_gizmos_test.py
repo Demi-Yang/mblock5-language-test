@@ -22,21 +22,21 @@ class AurigaPerceptionGizmosTest(unittest.TestCase):
         cls.test_dict = test_file['ext-i18n/auriga_perception_gizmos']
 
 
-    def check_key_exists(self, key):
+    def check_key_exists(self, key, ):
         self.assertIn(key, self.test_dict, '\n缺少key: {0}'.format(key))
 
     def check_expect_value(self, key, expect_value):
         test_data = self.test_dict[key]
-        self.assertEqual(test_data, expect_value, '\nkey: {0},\n value:{1},\n error: 值不等于{2}, '.format(key, test_data, expect_value))
+        self.assertEqual(test_data, expect_value, '\nkey: {0} \nvalue: {1} \n error: 值不等于 {2}, '.format(key, test_data, expect_value))
 
     def check_param(self, key, param):
         test_data = self.test_dict[key]
-        self.assertIn(param, test_data, '\nkey:{0}, 缺少参数：{1}'.format(key, param))
+        self.assertIn(param, test_data, '\nkey: {0} \nvalue: {1} \n缺少参数：{2}'.format(key, test_data, param))
 
     def check_icon(self, key):
         test_data = self.test_dict[key]
-        self.assertIn('[ICON]', test_data, '\nkey: {0}, 缺少参数：[ICON]'.format(key))
-        self.assertEqual(test_data.index('[ICON]'), 0, '\nkey: {0}, error:参数[ICON]必须在首位'.format(key))
+        self.assertIn('[ICON]', test_data, '\nkey: {0} \nvalue: {1} \n缺少参数： [ICON]'.format(key, test_data))
+        self.assertEqual(test_data.index('[ICON]'), 0, '\nkey: {0} \nvalue: {1} \nerror: 参数[ICON]必须在首位'.format(key, test_data))
 
 
 
@@ -44,12 +44,12 @@ class AurigaPerceptionGizmosTest(unittest.TestCase):
     # ext-i18n/auriga_perception_gizmos/No empty value
     def test_no_empty_value(self):
         for key,value in self.test_dict.items():
-            self.assertIsNotNone(value, "缺少翻译的字段：" + key)
-            self.assertNotEqual(value, '', "缺少翻译的字段：" + key)
+            self.assertIsNotNone(value, "\n缺少翻译的字段：" + key)
+            self.assertNotEqual(value, '', "\n缺少翻译的字段：" + key)
 
     # ext-i18n/auriga_perception_gizmos/No new or missing items
     def test_no_new_or_missing_items(self):
-        self.assertEqual(len(self.test_dict), 18, "auriga_laser_sword 模块下存在新增或者删减的字段，需要修改测试用例！")
+        self.assertEqual(len(self.test_dict), 18, "\nauriga_laser_sword 模块下存在新增或者删减的字段，需要修改测试用例！")
 
     # ext-i18n/auriga_perception_gizmos/mcore_run_fan contains [ICON] [PORT] [FAN_ROTATE]
     def test_mcore_run_fan(self):

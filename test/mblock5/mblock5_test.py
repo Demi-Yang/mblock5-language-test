@@ -24,13 +24,13 @@ class Mblock5Test(unittest.TestCase):
         cls.test_dict = test_file['mblock5-i18n']
 
     def check_params(self, key, param):
-        self.assertIn(key, self.test_dict, assert_msg.format(key, 'key缺失'))
+        self.assertIn(key, self.test_dict, assert_msg.format(key, '\nkey缺失\n'))
         test_data = self.test_dict[key]
-        self.assertIn(param, test_data, "key: {0}, 缺少参数: {1}, value: {2} ".format(key, param, test_data))
+        self.assertIn(param, test_data, "\nkey: {0} \nvalue: {2} \n缺少参数: {1}, ".format(key, param, test_data))
 
     def check_regular_expression(self, key, regular, hint):
         test_data = self.test_dict[key]
-        self.assertRegexpMatches(test_data, regular, '\nkey:{0}, 正则表达式【 {1} 】匹配失败 \n\n\n'.format(key, hint))
+        self.assertRegexpMatches(test_data, regular, '\nkey: {0} \nvalue: {2} \n正则表达式【 {1} 】匹配失败 \n\n\n'.format(key, hint, test_data))
 
 
     # mblock5-i18n/No empty value

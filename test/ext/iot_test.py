@@ -27,22 +27,22 @@ class IotTest(unittest.TestCase):
 
     def check_expect_value(self, key, expect_value):
         test_data = self.test_dict[key]
-        self.assertEqual(test_data, expect_value, '\nkey: {0}, value:{1}, error: 值不等于{2}, '.format(key, test_data, expect_value))
+        self.assertEqual(test_data, expect_value, '\nkey: {0} \nvalue: {1} \nerror: 值不等于 {2}, '.format(key, test_data, expect_value))
 
     def check_params(self, key, params):
         test_data = self.test_dict[key]
         for p in params:
-            self.assertIn(p, test_data, '\nkey: {0}, value:{1}, 缺少参数：{2}'.format(key, test_data, p))
+            self.assertIn(p, test_data, '\nkey: {0} \nvalue: {1} \n缺少参数：{2}'.format(key, test_data, p))
 
     # ext-i18n/iot/No empty value
     def test_iot_no_empty_value(self):
         for key,value in self.test_dict.items():
-            self.assertIsNotNone(value, "缺少翻译的字段：" + key)
-            self.assertNotEqual(value, '', "缺少翻译的字段：" + key)
+            self.assertIsNotNone(value, "\n缺少翻译的字段：" + key)
+            self.assertNotEqual(value, '', "\n缺少翻译的字段：" + key)
 
     # ext-i18n/iot/No new or missing items
     def test_iot_no_new_or_missing_items(self):
-        self.assertEqual(len(self.test_dict), 66, 'iot 模块下新增或删减了新的字段，测试用例需增减~')
+        self.assertEqual(len(self.test_dict), 66, '\niot 模块下新增或删减了新的字段，测试用例需增减~')
 
     # mblock5-i18n/extensionName equals IoT
     def test_extensionName(self):

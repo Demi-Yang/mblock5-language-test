@@ -27,32 +27,32 @@ class GuiTest(unittest.TestCase):
 
     def check_expect_value(self, key, expect_value):
         test_data = self.test_dict[key]
-        self.assertEqual(test_data, expect_value, '\nkey: {0},\n value:{1},\n error: 值不等于{2}, '.format(key, test_data, expect_value))
+        self.assertEqual(test_data, expect_value, '\nkey: {0} \nvalue: {1} \n error: 值不等于 {2}, '.format(key, test_data, expect_value))
 
     def check_param(self, key, param):
         test_data = self.test_dict[key]
-        self.assertIn(param, test_data, '\nkey:{0}, 缺少参数：{1}'.format(key, param))
+        self.assertIn(param, test_data, '\nkey: {0} \nvalue: {1} \n缺少参数：{2}'.format(key, test_data, param))
 
     def check_icon(self, key):
         test_data = self.test_dict[key]
-        self.assertIn('[ICON]', test_data, '\nkey: {0}, 缺少参数：[ICON]'.format(key))
-        self.assertEqual(test_data.index('[ICON]'), 0, '\nkey: {0}, error:参数[ICON]必须在首位'.format(key))
+        self.assertIn('[ICON]', test_data, '\nkey: {0} \nvalue: {1} \n缺少参数： [ICON]'.format(key, test_data))
+        self.assertEqual(test_data.index('[ICON]'), 0, '\nkey: {0} \nvalue: {1} \nerror: 参数[ICON]必须在首位'.format(key, test_data))
 
     def check_regular_expression(self, key, regular, hint):
         test_data = self.test_dict[key]
-        self.assertRegexpMatches(test_data, regular, '\nkey:{0}, 正则表达式【 {1} 】匹配失败 \n\n\n'.format(key, hint))
+        self.assertRegexpMatches(test_data, regular, '\nkey: {0} \nvalue: {1} \n正则表达式【 {2} 】匹配失败 \n\n\n'.format(key, test_data, hint))
 
 
 
     # mscratch-i18n/gui/No empty value
     def test_no_empty_value(self):
         for key,value in self.test_dict.items():
-            self.assertIsNotNone(value, "mscratch-i18n/gui/ 模块下存在未翻译的字段: " + key)
-            self.assertNotEqual(value, '', "mscratch-i18n/gui/ 模块下存在翻译为空的字段: " + key)
+            self.assertIsNotNone(value, "\nmscratch-i18n/gui/ 模块下存在未翻译的字段: " + key)
+            self.assertNotEqual(value, '', "\nmscratch-i18n/gui/ 模块下存在翻译为空的字段: " + key)
 
     # mscratch-i18n/gui/No new or missing items
     def test_no_new_or_missing_items(self):
-        self.assertEqual(len(self.test_dict), 194, "mscratch-i18n/gui/ 模块下新增或删减了翻译字段")
+        self.assertEqual(len(self.test_dict), 194, "\nmscratch-i18n/gui/ 模块下新增或删减了翻译字段")
 
     # mscratch-i18n/gui/gui.modal.inputTip contains &<>'\"
     def test_modal_inputTip(self):

@@ -27,19 +27,18 @@ class TMTest(unittest.TestCase):
 
     def check_param(self, key, param):
         test_data = self.test_dict[key]
-        self.assertIn(param, test_data, '\nkey:{0}, 缺少参数：{1}'.format(key, param))
-
+        self.assertIn(param, test_data, '\nkey: {0} \nvalue: {1} \n缺少参数：{2}'.format(key, test_data, param))
 
 
     # ext-i18n/tm/No empty value
     def test_tm_no_empty_value(self):
         for key,value in self.test_dict.items():
-            self.assertIsNotNone(value, "缺少翻译的字段：" + key)
-            self.assertNotEqual(value, '', "缺少翻译的字段：" + key)
+            self.assertIsNotNone(value, "\n缺少翻译的字段：" + key)
+            self.assertNotEqual(value, '', "\n缺少翻译的字段：" + key)
 
     # ext-i18n/tm/No new or missing items
     def test_tm_no_new_or_missing_items(self):
-        self.assertEqual(len(self.test_dict), 33, "tm 模块下存在新增或者删减的字段，需要修改测试用例！")
+        self.assertEqual(len(self.test_dict), 33, "\ntm 模块下存在新增或者删减的字段，需要修改测试用例！")
 
     # ext-i18n/tm/visual_recognition_confidence contains [sample_index]
     def test_visual_recognition_confidence(self):

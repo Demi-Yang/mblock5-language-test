@@ -23,20 +23,20 @@ class CodeyEmotionTest(unittest.TestCase):
         cls.test_dict = test_file['ext-i18n/codey_emotion']
 
     def check_icon(self, key):
-        self.assertIn(key, self.test_dict, '\n缺少key: {0}'.format(key))
+        self.assertIn(key, self.test_dict, '\n缺少key: {0}\n'.format(key))
         test_data = self.test_dict[key]
-        self.assertIn('[ICON]', test_data, '\nkey: {0}, 缺少参数：[ICON]'.format(key))
-        self.assertEqual(test_data.index('[ICON]'), 0, '\nkey: {0}, error:参数[ICON]必须在首位'.format(key))
+        self.assertIn('[ICON]', test_data, '\nkey: {0} \nvalue: {1} \n缺少参数： [ICON]'.format(key, test_data))
+        self.assertEqual(test_data.index('[ICON]'), 0, '\nkey: {0} \nvalue: {1} \nerror:参数[ICON]必须在首位'.format(key, test_data))
 
     # ext-i18n/codey_emotion/No empty value
     def test_tm_no_empty_value(self):
         for key,value in self.test_dict.items():
-            self.assertIsNotNone(value, "缺少翻译的字段：" + key)
-            self.assertNotEqual(value, '', "缺少翻译的字段：" + key)
+            self.assertIsNotNone(value, "\n缺少翻译的字段：" + key)
+            self.assertNotEqual(value, '', "\n缺少翻译的字段：" + key)
 
     # ext-i18n/codey_emotion/No new or missing items
     def test_no_new_or_missing_items(self):
-        self.assertEqual(len(self.test_dict), 29, 'codey_emotion 模块下新增或删减了新的字段，测试用例需增减~')
+        self.assertEqual(len(self.test_dict), 29, '\ncodey_emotion 模块下新增或删减了新的字段，测试用例需增减~')
 
     # ext-i18n/codey_emotion/codey_emotion_look_up contains [ICON]
     def test_look_up(self):

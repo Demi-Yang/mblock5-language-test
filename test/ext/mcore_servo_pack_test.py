@@ -28,22 +28,22 @@ class McoreServoPackTest(unittest.TestCase):
     def check_params(self, key, params):
         test_data = self.test_dict[key]
         for p in params:
-            self.assertIn(p, test_data, '\nkey: {0}, value: {1}, 缺少参数:{2}'.format(key, test_data, p))
+            self.assertIn(p, test_data, '\nkey: {0} \nvalue: {1} \n缺少参数: {2}'.format(key, test_data, p))
 
     def check_icon(self, key):
         test_data = self.test_dict[key]
-        self.assertIn('[ICON]', test_data, '\nkey: {0}, value: {1}, 缺少参数：[ICON]'.format(key, test_data))
-        self.assertEqual(test_data.index('[ICON]'), 0, '\nkey: {0}, 参数[ICON]必须在首位'.format(key))
+        self.assertIn('[ICON]', test_data, '\nkey: {0} \nvalue: {1} \n缺少参数： [ICON]'.format(key, test_data))
+        self.assertEqual(test_data.index('[ICON]'), 0, '\nkey: {0} \nvalue: {1} \nerror: 参数[ICON]必须在首位'.format(key, test_data))
 
     # ext-i18n/mcore_servo_pack/No empty value
     def test_mcore_servo_pack_no_empty_value(self):
         for key,value in self.test_dict.items():
-            self.assertIsNotNone(value, "缺少翻译的字段：" + key)
-            self.assertNotEqual(value, '', "缺少翻译的字段：" + key)
+            self.assertIsNotNone(value, "\n缺少翻译的字段：" + key)
+            self.assertNotEqual(value, '', "\n缺少翻译的字段：" + key)
 
     # ext-i18n/mcore_servo_pack/No new or missing items
     def test_mcore_servo_pack_no_new_or_missing_items(self):
-        self.assertEqual(len(self.test_dict), 20, 'ext-i18n/mcore_servo_pack 模块下新增或删减了新的字段，测试用例需增减~')
+        self.assertEqual(len(self.test_dict), 20, '\next-i18n/mcore_servo_pack 模块下新增或删减了新的字段，测试用例需增减~')
 
     # ext-i18n/mcore_servo_pack/mcore_show_external_led_time contains [ICON] [PORT] [LED_POSTION] [COLOR] [TIME] 
     def test_mcore_show_external_led_time(self):
