@@ -633,7 +633,7 @@ class AurigaTest(unittest.TestCase):
     def test_auriga_when_board_launch(self):
         key = 'auriga_when_board_launch'
         self.check_key_exists(key)
-        self.check_param(key, 'mBot Ranger(Auriga)')
+        self.check_param(key, 'Ranger')
 
     # ext-i18n/auriga/AURIGA_SOUND_PLAY_NOTE_NOTE is right
     def test_AURIGA_SOUND_PLAY_NOTE_NOTE(self):

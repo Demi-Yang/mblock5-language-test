@@ -49,35 +49,34 @@ class AurigaPerceptionGizmosTest(unittest.TestCase):
 
     # ext-i18n/auriga_perception_gizmos/No new or missing items
     def test_no_new_or_missing_items(self):
-        self.assertEqual(len(self.test_dict), 18, "\nauriga_laser_sword 模块下存在新增或者删减的字段，需要修改测试用例！")
+        self.assertEqual(len(self.test_dict), 18, "\nauriga_perception_gizmos 模块下存在新增或者删减的字段，需要修改测试用例！")
 
-    # ext-i18n/auriga_perception_gizmos/mcore_run_fan contains [ICON] [PORT] [FAN_ROTATE]
-    def test_mcore_run_fan(self):
-        key = 'mcore_run_fan'
+    # ext-i18n/auriga_perception_gizmos/auriga_run_fan contains [ICON] [PORT] [FAN_ROTATE]
+    def test_auriga_run_fan(self):
+        key = 'auriga_run_fan'
         self.check_key_exists(key)
-        
         self.check_param(key, '[PORT]')
         self.check_param(key, '[FAN_ROTATE]')
         self.check_icon(key)
 
-    # ext-i18n/auriga_perception_gizmos/mcore_detect_external_loudness contains [ICON] [PORT] 
-    def test_mcore_detect_external_loudness(self):
-        key = 'mcore_detect_external_loudness'
+    # ext-i18n/auriga_perception_gizmos/auriga_detect_external_loudness contains [ICON] [PORT] 
+    def test_auriga_detect_external_loudness(self):
+        key = 'auriga_detect_external_loudness'
         self.check_key_exists(key)
         self.check_param(key, '[PORT]')
         self.check_icon(key)
 
-    # ext-i18n/auriga_perception_gizmos/mcore_detec_temperature contains [ICON] [PORT] [SLOT]
-    def test_mcore_detec_temperature(self):
-        key = 'mcore_detec_temperature'
+    # ext-i18n/auriga_perception_gizmos/auriga_detec_temperature contains [ICON] [PORT] [SLOT]
+    def test_auriga_detec_temperature(self):
+        key = 'auriga_detec_temperature'
         self.check_key_exists(key)
         self.check_param(key, '[PORT]')
         self.check_param(key, '[SLOT]')
         self.check_icon(key)
 
-    # ext-i18n/auriga_perception_gizmos/mcore_detect_potentiometer contains [ICON] [PORT]
-    def test_mcore_detect_potentiometer(self):
-        key = 'mcore_detect_potentiometer'
+    # ext-i18n/auriga_perception_gizmos/auriga_detect_potentiometer contains [ICON] [PORT]
+    def test_auriga_detect_potentiometer(self):
+        key = 'auriga_detect_potentiometer'
         self.check_key_exists(key)
         self.check_param(key, '[PORT]')
         self.check_icon(key)

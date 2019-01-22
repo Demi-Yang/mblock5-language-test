@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>mBlock Translate CheckList Test Report</h1>
-<p class='attribute'><strong>Start Time:</strong> 2018-11-30 12:34:46</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:00.402000</p>
-<p class='attribute'><strong>Status:</strong> Pass 724 Failure 44</p>
+<p class='attribute'><strong>Start Time:</strong> 2019-01-22 10:32:43</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:00.460000</p>
+<p class='attribute'><strong>Status:</strong> Pass 702 Failure 66</p>
 
 <p class='description'>Implementation Example with:</p>
 </div>
@@ -224,8 +224,8 @@ function showOutput(id, name) {
 <tr class='failClass'>
     <td>test.ext.arduino_mega2560_test.ArduinoMega2560Test</td>
     <td>17</td>
-    <td>16</td>
-    <td>1</td>
+    <td>15</td>
+    <td>2</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c1',17)">Detail</a></td>
 </tr>
@@ -301,9 +301,30 @@ ft1.10:
     </td>
 </tr>
 
-<tr id='pt1.11' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_no_new_or_missing_items</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft1.11' class='none'>
+    <td class='failCase'><div class='testcase'>test_no_new_or_missing_items</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.11')" >
+        fail</a>
+
+    <div id='div_ft1.11' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.11').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.11: 
+arduino_mega2560 模块下新增或删减了新的字段，测试用例需增减~
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
 <tr id='pt1.12' class='hiddenRow'>
@@ -339,8 +360,8 @@ ft1.10:
 <tr class='failClass'>
     <td>test.ext.arduino_uno_test.ArduinoUnoTest</td>
     <td>17</td>
-    <td>15</td>
-    <td>2</td>
+    <td>14</td>
+    <td>3</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c2',17)">Detail</a></td>
 </tr>
@@ -401,7 +422,7 @@ ft1.10:
         <pre>
         
 ft2.9: 
-arduino_uno 模块下存在未翻译的字段：extensionDescription
+arduino_uno 模块下存在未翻译的字段：e_214_c_myBlocks_b_8281
 
 
         </pre>
@@ -411,9 +432,30 @@ arduino_uno 模块下存在未翻译的字段：extensionDescription
     </td>
 </tr>
 
-<tr id='pt2.10' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_ext_i18n_arduino_uno_no_new_or_missing_items</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft2.10' class='none'>
+    <td class='failCase'><div class='testcase'>test_ext_i18n_arduino_uno_no_new_or_missing_items</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.10')" >
+        fail</a>
+
+    <div id='div_ft2.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.10: 
+arduino_uno 模块下新增或删减了新的字段，测试用例需增减~
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
 <tr id='pt2.11' class='hiddenRow'>
@@ -762,33 +804,117 @@ error: 参数[ICON]必须在首位
     <td colspan='5' align='center'>pass</td>
 </tr>
 
-<tr class='passClass'>
+<tr class='failClass'>
     <td>test.ext.auriga_perception_gizmos_test.AurigaPerceptionGizmosTest</td>
     <td>6</td>
-    <td>6</td>
-    <td>0</td>
+    <td>2</td>
+    <td>4</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c5',6)">Detail</a></td>
 </tr>
 
-<tr id='pt5.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_mcore_detec_temperature</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft5.1' class='none'>
+    <td class='failCase'><div class='testcase'>test_mcore_detec_temperature</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.1')" >
+        fail</a>
+
+    <div id='div_ft5.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.1: 
+缺少key: mcore_detec_temperature
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
-<tr id='pt5.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_mcore_detect_external_loudness</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft5.2' class='none'>
+    <td class='failCase'><div class='testcase'>test_mcore_detect_external_loudness</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.2')" >
+        fail</a>
+
+    <div id='div_ft5.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.2: 
+缺少key: mcore_detect_external_loudness
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
-<tr id='pt5.3' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_mcore_detect_potentiometer</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft5.3' class='none'>
+    <td class='failCase'><div class='testcase'>test_mcore_detect_potentiometer</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.3')" >
+        fail</a>
+
+    <div id='div_ft5.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.3: 
+缺少key: mcore_detect_potentiometer
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
-<tr id='pt5.4' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_mcore_run_fan</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft5.4' class='none'>
+    <td class='failCase'><div class='testcase'>test_mcore_run_fan</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.4')" >
+        fail</a>
+
+    <div id='div_ft5.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.4: 
+缺少key: mcore_run_fan
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
 <tr id='pt5.5' class='hiddenRow'>
@@ -804,8 +930,8 @@ error: 参数[ICON]必须在首位
 <tr class='failClass'>
     <td>test.ext.auriga_test.AurigaTest</td>
     <td>76</td>
-    <td>75</td>
-    <td>1</td>
+    <td>74</td>
+    <td>2</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c6',76)">Detail</a></td>
 </tr>
@@ -996,7 +1122,7 @@ error: 参数[ICON]必须在首位
         <pre>
         
 ft6.35: 
-缺少翻译的字段：extensionDescription
+缺少翻译的字段：firmwares_description_0
 
 
         </pre>
@@ -1006,9 +1132,30 @@ ft6.35:
     </td>
 </tr>
 
-<tr id='pt6.36' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_auriga_no_new_or_missing_items</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft6.36' class='none'>
+    <td class='failCase'><div class='testcase'>test_auriga_no_new_or_missing_items</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft6.36')" >
+        fail</a>
+
+    <div id='div_ft6.36' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft6.36').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft6.36: 
+auriga 模块下存在新增或者删减的字段，需要修改测试用例！
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
 <tr id='pt6.37' class='hiddenRow'>
@@ -1211,43 +1358,169 @@ ft6.35:
     <td colspan='5' align='center'>pass</td>
 </tr>
 
-<tr class='passClass'>
+<tr class='failClass'>
     <td>test.ext.auriga_variety_gizmos_test.AurigaVarietyGizmosTest</td>
     <td>8</td>
-    <td>8</td>
-    <td>0</td>
+    <td>2</td>
+    <td>6</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c7',8)">Detail</a></td>
 </tr>
 
-<tr id='pt7.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_mcore_event_limit_switch</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft7.1' class='none'>
+    <td class='failCase'><div class='testcase'>test_mcore_event_limit_switch</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft7.1')" >
+        fail</a>
+
+    <div id='div_ft7.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft7.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft7.1: 
+缺少key: mcore_event_limit_switch
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
-<tr id='pt7.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_mcore_run_servo</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft7.2' class='none'>
+    <td class='failCase'><div class='testcase'>test_mcore_run_servo</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft7.2')" >
+        fail</a>
+
+    <div id='div_ft7.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft7.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft7.2: 
+缺少key: mcore_run_servo
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
-<tr id='pt7.3' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_mcore_show_7segments_number</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft7.3' class='none'>
+    <td class='failCase'><div class='testcase'>test_mcore_show_7segments_number</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft7.3')" >
+        fail</a>
+
+    <div id='div_ft7.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft7.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft7.3: 
+缺少key: mcore_show_7segments_number
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
-<tr id='pt7.4' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_mcore_show_external_led</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft7.4' class='none'>
+    <td class='failCase'><div class='testcase'>test_mcore_show_external_led</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft7.4')" >
+        fail</a>
+
+    <div id='div_ft7.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft7.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft7.4: 
+缺少key: mcore_show_external_led
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
-<tr id='pt7.5' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_mcore_show_external_led_rgb</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft7.5' class='none'>
+    <td class='failCase'><div class='testcase'>test_mcore_show_external_led_rgb</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft7.5')" >
+        fail</a>
+
+    <div id='div_ft7.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft7.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft7.5: 
+缺少key: mcore_show_external_led_rgb
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
-<tr id='pt7.6' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_mcore_show_external_led_time</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft7.6' class='none'>
+    <td class='failCase'><div class='testcase'>test_mcore_show_external_led_time</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft7.6')" >
+        fail</a>
+
+    <div id='div_ft7.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft7.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft7.6: 
+缺少key: mcore_show_external_led_time
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
 <tr id='pt7.7' class='hiddenRow'>
@@ -1737,8 +2010,8 @@ value:[ICON] Painel de LED [ID] desligado em x:[X] y:[Y]
 <tr class='failClass'>
     <td>test.ext.codey_test.CodeyTest</td>
     <td>85</td>
-    <td>73</td>
-    <td>12</td>
+    <td>72</td>
+    <td>13</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c10',85)">Detail</a></td>
 </tr>
@@ -2437,9 +2710,30 @@ ft10.84:
     </td>
 </tr>
 
-<tr id='pt10.85' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_no_new_or_missing_items</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft10.85' class='none'>
+    <td class='failCase'><div class='testcase'>test_no_new_or_missing_items</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft10.85')" >
+        fail</a>
+
+    <div id='div_ft10.85' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft10.85').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft10.85: 
+codey 模块下新增或删减了新的字段，测试用例需增减~
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
 <tr class='passClass'>
@@ -2515,11 +2809,11 @@ ft10.84:
     <td colspan='5' align='center'>pass</td>
 </tr>
 
-<tr class='passClass'>
+<tr class='failClass'>
     <td>test.ext.iot_test.IotTest</td>
     <td>11</td>
-    <td>11</td>
-    <td>0</td>
+    <td>10</td>
+    <td>1</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c13',11)">Detail</a></td>
 </tr>
@@ -2564,9 +2858,30 @@ ft10.84:
     <td colspan='5' align='center'>pass</td>
 </tr>
 
-<tr id='pt13.9' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_iot_no_new_or_missing_items</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft13.9' class='none'>
+    <td class='failCase'><div class='testcase'>test_iot_no_new_or_missing_items</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft13.9')" >
+        fail</a>
+
+    <div id='div_ft13.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft13.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft13.9: 
+iot 模块下新增或删减了新的字段，测试用例需增减~
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
 <tr id='pt13.10' class='hiddenRow'>
@@ -2828,11 +3143,11 @@ error: 值不等于 7,
     <td colspan='5' align='center'>pass</td>
 </tr>
 
-<tr class='passClass'>
+<tr class='failClass'>
     <td>test.ext.mcore_all_test.McoreAllTest</td>
     <td>30</td>
-    <td>30</td>
-    <td>0</td>
+    <td>29</td>
+    <td>1</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c15',30)">Detail</a></td>
 </tr>
@@ -2842,9 +3157,30 @@ error: 值不等于 7,
     <td colspan='5' align='center'>pass</td>
 </tr>
 
-<tr id='pt15.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_mcore_all_no_new_or_missing_items</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft15.2' class='none'>
+    <td class='failCase'><div class='testcase'>test_mcore_all_no_new_or_missing_items</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft15.2')" >
+        fail</a>
+
+    <div id='div_ft15.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft15.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft15.2: 
+ext-i18n/mcore_all 模块下新增或删减了新的字段，测试用例需增减~
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
 <tr id='pt15.3' class='hiddenRow'>
@@ -3112,8 +3448,8 @@ error: 值不等于 7,
 <tr class='failClass'>
     <td>test.ext.mcore_test.McoreTest</td>
     <td>65</td>
-    <td>63</td>
-    <td>2</td>
+    <td>61</td>
+    <td>4</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c19',65)">Detail</a></td>
 </tr>
@@ -3334,14 +3670,56 @@ value: [ICON]roda esquerda na potência [POWER_LEFT] %, roda direita na potênci
     </td>
 </tr>
 
-<tr id='pt19.35' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_mcore_no_empty_value</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft19.35' class='none'>
+    <td class='failCase'><div class='testcase'>test_mcore_no_empty_value</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft19.35')" >
+        fail</a>
+
+    <div id='div_ft19.35' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft19.35').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft19.35: 
+缺少翻译的字段：firmwares_description_73cf5917
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
-<tr id='pt19.36' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_mcore_no_new_or_missing_items</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft19.36' class='none'>
+    <td class='failCase'><div class='testcase'>test_mcore_no_new_or_missing_items</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft19.36')" >
+        fail</a>
+
+    <div id='div_ft19.36' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft19.36').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft19.36: 
+ext-i18n/mcore 模块下新增或删减了新的字段，测试用例需增减~
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
 <tr id='pt19.37' class='hiddenRow'>
@@ -3600,8 +3978,8 @@ value: [ICON]roda esquerda na potência [POWER_LEFT] %, roda direita na potênci
 <tr class='failClass'>
     <td>test.ext.microbit_test.MicrobitTest</td>
     <td>49</td>
-    <td>42</td>
-    <td>7</td>
+    <td>41</td>
+    <td>8</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c22',49)">Detail</a></td>
 </tr>
@@ -3708,9 +4086,9 @@ value: 1010
         <pre>
         
 ft22.9: 
-key: MICROBIT_RADIO_SET_CHANNEL_CHANNEL_15 
-value: 5 
- error: 值不等于 15, 
+key: MICROBIT_RADIO_SET_CHANNEL_CHANNEL_10 
+value: 1010 
+ error: 值不等于 10, 
 
 
         </pre>
@@ -3854,7 +4232,7 @@ value: [ICON] obter brilho em x: [X] Y: [Y]
         <pre>
         
 ft22.29: 
-缺少翻译的字段：procedures_definition
+缺少翻译的字段：extensionDescription
 
 
         </pre>
@@ -3864,9 +4242,30 @@ ft22.29:
     </td>
 </tr>
 
-<tr id='pt22.30' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_microbit_no_new_or_missing_items</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft22.30' class='none'>
+    <td class='failCase'><div class='testcase'>test_microbit_no_new_or_missing_items</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft22.30')" >
+        fail</a>
+
+    <div id='div_ft22.30' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft22.30').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft22.30: 
+microbit 模块下存在新增或者删减的字段，需要修改测试用例！
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
 <tr id='pt22.31' class='hiddenRow'>
@@ -4013,8 +4412,8 @@ value: [ICON] [STATUS] no eixo x:[X], eixo y:[Y]
 <tr class='failClass'>
     <td>test.ext.neuron_test.NeuronTest</td>
     <td>53</td>
-    <td>48</td>
-    <td>5</td>
+    <td>47</td>
+    <td>6</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c23',53)">Detail</a></td>
 </tr>
@@ -4183,9 +4582,30 @@ value: E4
     <td colspan='5' align='center'>pass</td>
 </tr>
 
-<tr id='pt23.29' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_neuron_no_new_or_missing_items</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft23.29' class='none'>
+    <td class='failCase'><div class='testcase'>test_neuron_no_new_or_missing_items</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft23.29')" >
+        fail</a>
+
+    <div id='div_ft23.29' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft23.29').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft23.29: 
+neuron 模块下存在新增或者删减的字段，需要修改测试用例！
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
 <tr id='pt23.30' class='hiddenRow'>
@@ -4470,8 +4890,8 @@ error: 参数[ICON]必须在首位
 <tr class='failClass'>
     <td>test.mblock5.mblock5_test.Mblock5Test</td>
     <td>19</td>
-    <td>18</td>
-    <td>1</td>
+    <td>17</td>
+    <td>2</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c27',19)">Detail</a></td>
 </tr>
@@ -4592,9 +5012,29 @@ value: O nome do ficheiro não pode conter os caracteres \ /: *? "&lt; &gt; | , 
     <td colspan='5' align='center'>pass</td>
 </tr>
 
-<tr id='pt27.19' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_no_new_or_missing_items</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft27.19' class='none'>
+    <td class='failCase'><div class='testcase'>test_no_new_or_missing_items</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft27.19')" >
+        fail</a>
+
+    <div id='div_ft27.19' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft27.19').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft27.19: mblock5-i18n 模块下新增或删减了新的字段，测试用例需增减~
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
 <tr class='failClass'>
@@ -5317,11 +5757,11 @@ value: definir Y para %1
     <td colspan='5' align='center'>pass</td>
 </tr>
 
-<tr class='passClass'>
+<tr class='failClass'>
     <td>test.mscratch.gui_test.GuiTest</td>
     <td>4</td>
-    <td>4</td>
-    <td>0</td>
+    <td>3</td>
+    <td>1</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c31',4)">Detail</a></td>
 </tr>
@@ -5341,16 +5781,37 @@ value: definir Y para %1
     <td colspan='5' align='center'>pass</td>
 </tr>
 
-<tr id='pt31.4' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_no_new_or_missing_items</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft31.4' class='none'>
+    <td class='failCase'><div class='testcase'>test_no_new_or_missing_items</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft31.4')" >
+        fail</a>
+
+    <div id='div_ft31.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft31.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft31.4: 
+mscratch-i18n/gui/ 模块下新增或删减了翻译字段
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
 <tr id='total_row'>
     <td>Total</td>
     <td>768</td>
-    <td>724</td>
-    <td>44</td>
+    <td>702</td>
+    <td>66</td>
     <td>0</td>
     <td>&nbsp;</td>
 </tr>

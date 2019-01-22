@@ -50,7 +50,7 @@ class AurigaLaserSwordTest(unittest.TestCase):
 
     # ext-i18n/auriga_laser_sword/No new or missing items
     def test_no_new_or_missing_items(self):
-        self.assertEqual(len(self.test_dict), 22, "\nauriga_laser_sword 模块下存在新增或者删减的字段，需要修改测试用例！")
+        self.assertEqual(len(self.test_dict), 21, "\nauriga_laser_sword 模块下存在新增或者删减的字段，需要修改测试用例！")
 
     # ext-i18n/auriga_laser_sword/auriga_show_all_ledstrip_color contains [ICON] [PORT] [SLOT] [COLOR_LIST]
     def test_auriga_show_all_ledstrip_color(self):
