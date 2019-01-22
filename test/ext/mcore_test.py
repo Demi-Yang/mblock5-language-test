@@ -235,7 +235,7 @@ class McoreTest(unittest.TestCase):
         key = 'mcore_move_wheel_speed'
         self.check_key_exists(key)
         self.check_icon(key)
-        self.check_params(key, ['[POWER_LEFT] %', '[POWER_RIGHT] %', '[MOVE_DIRECTION]'])
+        self.check_params(key, ['[POWER_LEFT] %', '[POWER_RIGHT] %'])
 
     # ext-i18n/mcore/mcore_move_stop contains [ICON] 
     def test_mcore_move_stop(self):
