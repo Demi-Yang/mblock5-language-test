@@ -388,14 +388,16 @@ class BlocksTest(unittest.TestCase):
     def test_MOTION_GOTOXY(self):
         key = 'MOTION_GOTOXY'
         self.check_key_exists(key)
-        self.check_param(key, 'x: %1', 'y: %2')
+        self.check_param(key, 'x: %1')
+        self.check_param(key, 'y: %2')
 
     # mscratch-i18n/blocks/MOTION_GLIDESECSTOXY contains %1 and x: %2 y: %3
     def test_MOTION_GLIDESECSTOXY(self):
         key = 'MOTION_GLIDESECSTOXY'
         self.check_key_exists(key)
         self.check_param(key, '%1')
-        self.check_param(key, 'x: %2', 'y: %3')
+        self.check_param(key, 'x: %2')
+        self.check_param(key, 'y: %3')
 
     # mscratch-i18n/blocks/MOTION_GLIDETO contains %1 
     def test_MOTION_GLIDETO(self):
