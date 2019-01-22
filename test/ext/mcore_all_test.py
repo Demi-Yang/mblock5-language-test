@@ -125,7 +125,7 @@ class McoreAllTest(unittest.TestCase):
         key = 'mcore_show_time'
         self.check_key_exists(key)
         self.check_icon(key)
-        self.check_params(key, ['[PORT]', '[NUMBER1]: [NUMBER2]'])
+        self.check_params(key, ['[PORT]', '[NUMBER1]', '[NUMBER2]'])
 
     # ext-i18n/mcore_all/mcore_show_face_off contains [ICON] [PORT] 
     def test_mcore_show_face_off(self):

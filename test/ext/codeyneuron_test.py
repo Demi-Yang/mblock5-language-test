@@ -84,21 +84,21 @@ class CodeyNeuronTest(unittest.TestCase):
         key = 'codey_neuron_set_ledpanel_position_color'
         self.check_key_exists(key)
         self.check_icon(key)
-        self.check_params(key, ['[ID]', 'x: [X]  y: [Y]', '[COLOR]'])
+        self.check_params(key, ['[ID]', 'x: [X]', 'y: [Y]', '[COLOR]'])
 
     # ext-i18n/codeyneuron/codey_neuron_set_ledpanel_postion_rgb contains [ICON] [ID] x: [X]  y: [Y] [R][G][B] 
     def test_codey_neuron_set_ledpanel_postion_rgb(self):
         key = 'codey_neuron_set_ledpanel_postion_rgb'
         self.check_key_exists(key)
         self.check_icon(key)
-        self.check_params(key, ['[ID]', 'x: [X]  y: [Y]', '[R]', '[G]', '[B]'])
+        self.check_params(key, ['[ID]', 'x: [X]',  'y: [Y]', '[R]', '[G]', '[B]'])
 
     # ext-i18n/codeyneuron/codey_neuron_turn_off_ledpanel_position contains [ICON] [ID] x: [X]  y: [Y]
     def test_codey_neuron_turn_off_ledpanel_position(self):
         key = 'codey_neuron_turn_off_ledpanel_position'
         self.check_key_exists(key)
         self.check_icon(key)
-        self.check_params(key, ['[ID]', 'x: [X]  y: [Y]'])
+        self.check_params(key, ['[ID]', 'x: [X]', 'y: [Y]'])
 
     # ext-i18n/codeyneuron/codey_neuron_turn_off_ledpanel contains [ICON] [ID]
     def test_codey_neuron_turn_off_ledpanel(self):
