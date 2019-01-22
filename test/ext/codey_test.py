@@ -75,7 +75,7 @@ class CodeyTest(unittest.TestCase):
         key = 'meos_show_led_matrix_face_position'
         self.check_key_exists(key)
         self.check_icon(key)
-        self.check_params(key, ['[PANEL]', 'x: [AXIS-X] y: [AXIS-Y]'])
+        self.check_params(key, ['[PANEL]', 'x: [AXIS-X]', 'y: [AXIS-Y]'])
 
     # ext-i18n/codey/meos_show_led_matrix_turn_off contains [ICON]
     def test_meos_show_led_matrix_turn_off(self):
@@ -102,28 +102,28 @@ class CodeyTest(unittest.TestCase):
         key = 'meos_show_led_matrix_string_position'
         self.check_key_exists(key)
         self.check_icon(key)
-        self.check_params(key, ['x: [X] y: [Y]', 'STRING'])
+        self.check_params(key, ['x: [X]', 'y: [Y]', 'STRING'])
 
     # ext-i18n/codey/meos_show_led_matrix_position contains [ICON]  x: [X]   y: [Y]
     def test_meos_show_led_matrix_position(self):
         key = 'meos_show_led_matrix_position'
         self.check_key_exists(key)
         self.check_icon(key)
-        self.check_params(key, ['x: [X] y: [Y]'])
+        self.check_params(key, ['x: [X]', 'y: [Y]'])
 
     # ext-i18n/codey/meos_light_off_led_matrix_position contains [ICON]  x: [X]   y: [Y]
     def test_meos_light_off_led_matrix_position(self):
         key = 'meos_light_off_led_matrix_position'
         self.check_key_exists(key)
         self.check_icon(key)
-        self.check_params(key, ['x: [X] y: [Y]'])
+        self.check_params(key, ['x: [X]', 'y: [Y]'])
 
     # ext-i18n/codey/meos_toggle_led_matrix_position contains [ICON]  x: [X]   y: [Y]
     def test_meos_toggle_led_matrix_position(self):
         key = 'meos_toggle_led_matrix_position'
         self.check_key_exists(key)
         self.check_icon(key)
-        self.check_params(key, ['x: [X] y: [Y]'])
+        self.check_params(key, ['x: [X]', 'y: [Y]'])
 
 
     # ext-i18n/codey/meos_event_led_matrix_position_is_light contains [ICON]  x: [X]   y: [Y]
@@ -131,7 +131,7 @@ class CodeyTest(unittest.TestCase):
         key = 'meos_event_led_matrix_position_is_light'
         self.check_key_exists(key)
         self.check_icon(key)
-        self.check_params(key, ['x: [X] y: [Y]'])
+        self.check_params(key, ['x: [X]', 'y: [Y]'])
 
     # ext-i18n/codey/meos_show_led_with_time contains [ICON]   [COLOR]   [TIME] 
     def test_meos_show_led_with_time(self):
@@ -440,21 +440,18 @@ class CodeyTest(unittest.TestCase):
     def test_MEOS_RESET_ANGLE_AXIS_0(self):
         key = 'MEOS_RESET_ANGLE_AXIS_0'
         self.check_key_exists(key)
-        self.check_icon(key)
         self.check_params(key, ['x'])
 
     # ext-i18n/codey/MEOS_RESET_ANGLE_AXIS_1 contains y
     def test_MEOS_RESET_ANGLE_AXIS_1(self):
         key = 'MEOS_RESET_ANGLE_AXIS_1'
         self.check_key_exists(key)
-        self.check_icon(key)
         self.check_params(key, ['y'])
 
     # ext-i18n/codey/MEOS_RESET_ANGLE_AXIS_2 contains z
     def test_MEOS_RESET_ANGLE_AXIS_2(self):
         key = 'MEOS_RESET_ANGLE_AXIS_2'
         self.check_key_exists(key)
-        self.check_icon(key)
         self.check_params(key, ['z'])
 
     # ext-i18n/codey/meos_reset_angle contains [ICON] AXIS
