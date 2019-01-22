@@ -525,21 +525,18 @@ class CodeyTest(unittest.TestCase):
     def test_MEOS_DETECT_ROTATE_ANGLE_AXIS_0(self):
         key = 'MEOS_DETECT_ROTATE_ANGLE_AXIS_0'
         self.check_key_exists(key)
-        self.check_icon(key)
         self.check_params(key, ['x'])
 
     # ext-i18n/codey/MEOS_DETECT_ROTATE_ANGLE_AXIS_1 contains y
     def test_MEOS_DETECT_ROTATE_ANGLE_AXIS_1(self):
         key = 'MEOS_DETECT_ROTATE_ANGLE_AXIS_1'
         self.check_key_exists(key)
-        self.check_icon(key)
         self.check_params(key, ['y'])
 
     # ext-i18n/codey/MEOS_DETECT_ROTATE_ANGLE_AXIS_2 contains z
     def test_MEOS_DETECT_ROTATE_ANGLE_AXIS_2(self):
         key = 'MEOS_DETECT_ROTATE_ANGLE_AXIS_2'
         self.check_key_exists(key)
-        self.check_icon(key)
         self.check_params(key, ['z'])
 
     # ext-i18n/codey/meos_detect_rotate_angle contains [ICON] AXIS
