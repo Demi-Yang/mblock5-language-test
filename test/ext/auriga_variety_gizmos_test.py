@@ -51,9 +51,9 @@ class AurigaVarietyGizmosTest(unittest.TestCase):
     def test_no_new_or_missing_items(self):
         self.assertEqual(len(self.test_dict), 22, "\nauriga_laser_sword 模块下存在新增或者删减的字段，需要修改测试用例！")
 
-    # ext-i18n/auriga_variety_gizmos/mcore_show_external_led_time contains [ICON] [PORT] [LED_POSTION] [COLOR] [TIME]
-    def test_mcore_show_external_led_time(self):
-        key = 'mcore_show_external_led_time'
+    # ext-i18n/auriga_variety_gizmos/auriga_show_external_led_time contains [ICON] [PORT] [LED_POSTION] [COLOR] [TIME]
+    def test_auriga_show_external_led_time(self):
+        key = 'auriga_show_external_led_time'
         self.check_key_exists(key)
         self.check_param(key, '[PORT]')
         self.check_param(key, '[LED_POSTION]')
@@ -61,18 +61,18 @@ class AurigaVarietyGizmosTest(unittest.TestCase):
         self.check_param(key, '[TIME]')
         self.check_icon(key)
 
-    # ext-i18n/auriga_variety_gizmos/mcore_show_external_led contains [ICON] [PORT] [LED_POSTION] [COLOR]
-    def test_mcore_show_external_led(self):
-        key = 'mcore_show_external_led'
+    # ext-i18n/auriga_variety_gizmos/auriga_show_external_led contains [ICON] [PORT] [LED_POSTION] [COLOR]
+    def test_auriga_show_external_led(self):
+        key = 'auriga_show_external_led'
         self.check_key_exists(key)
         self.check_param(key, '[PORT]') 
         self.check_param(key, '[LED_POSTION]')
         self.check_param(key, '[COLOR]')
         self.check_icon(key)
 
-    # ext-i18n/auriga_variety_gizmos/mcore_show_external_led_rgb contains [ICON] [PORT] [LED_POSTION] [R] [G] [B]
-    def test_mcore_show_external_led_rgb(self):
-        key = 'mcore_show_external_led_rgb'
+    # ext-i18n/auriga_variety_gizmos/auriga_show_external_led_rgb contains [ICON] [PORT] [LED_POSTION] [R] [G] [B]
+    def test_auriga_show_external_led_rgb(self):
+        key = 'auriga_show_external_led_rgb'
         self.check_key_exists(key)
         self.check_param(key, '[PORT]')
         self.check_param(key, '[LED_POSTION]')
@@ -81,26 +81,26 @@ class AurigaVarietyGizmosTest(unittest.TestCase):
         self.check_param(key, '[B]')
         self.check_icon(key)
 
-    # ext-i18n/auriga_variety_gizmos/mcore_run_servo contains [ICON] [PORT] [SLOT] [DEGREE] 
-    def test_mcore_run_servo(self):
-        key = 'mcore_run_servo'
+    # ext-i18n/auriga_variety_gizmos/auriga_run_servo contains [ICON] [PORT] [SLOT] [DEGREE] 
+    def test_auriga_run_servo(self):
+        key = 'auriga_run_servo'
         self.check_key_exists(key)
         self.check_param(key, '[PORT]')
         self.check_param(key, '[SLOT]')
         self.check_param(key, '[DEGREE]')
         self.check_icon(key)
 
-    # ext-i18n/auriga_variety_gizmos/mcore_show_7segments_number contains [ICON] [PORT] [NUMBER]
-    def test_mcore_show_7segments_number(self):
-        key = 'mcore_show_7segments_number'
+    # ext-i18n/auriga_variety_gizmos/auriga_show_7segments_number contains [ICON] [PORT] [NUMBER]
+    def test_auriga_show_7segments_number(self):
+        key = 'auriga_show_7segments_number'
         self.check_key_exists(key)
         self.check_param(key, '[PORT]')
         self.check_param(key, '[NUMBER]')
         self.check_icon(key)
 
-    # ext-i18n/auriga_variety_gizmos/mcore_event_limit_switch contains [ICON] [PORT] [SLOT]
-    def test_mcore_event_limit_switch(self):
-        key = 'mcore_event_limit_switch'
+    # ext-i18n/auriga_variety_gizmos/auriga_event_limit_switch contains [ICON] [PORT] [SLOT]
+    def test_auriga_event_limit_switch(self):
+        key = 'auriga_event_limit_switch'
         self.check_key_exists(key)
         self.check_param(key, '[PORT]')
         self.check_param(key, '[SLOT]')
