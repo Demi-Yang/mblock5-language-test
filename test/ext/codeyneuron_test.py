@@ -126,7 +126,7 @@ class CodeyNeuronTest(unittest.TestCase):
         key = 'codey_neuron_set_ledstrip_with_rgb'
         self.check_key_exists(key)
         self.check_icon(key)
-        self.check_params(key, ['[ID]', '[POSITION]', '[BEAT]', '[R]', '[G]', '[B]'])
+        self.check_params(key, ['[ID]', '[POSITION]', '[R]', '[G]', '[B]'])
 
     # ext-i18n/codeyneuron/codey_neuron_play_tone contains [ICON] [ID] [TONE] [BEAT]
     def test_codey_neuron_play_tone(self):
