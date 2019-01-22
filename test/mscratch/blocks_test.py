@@ -409,28 +409,28 @@ class BlocksTest(unittest.TestCase):
         key = 'MOTION_CHANGEXBY'
         self.check_key_exists(key)
         self.check_param(key, '%1')
-        self.check_param(key, ' x ')
+        self.check_param(key, 'x')
 
     # mscratch-i18n/blocks/MOTION_SETX contains %1 and x
     def test_MOTION_SETX(self):
         key = 'MOTION_SETX'
         self.check_key_exists(key)
         self.check_param(key, '%1')
-        self.check_param(key, ' x ')
+        self.check_param(key, 'x')
 
     # mscratch-i18n/blocks/MOTION_CHANGEYBY contains %1 and y
     def test_MOTION_CHANGEYBY(self):
         key = 'MOTION_CHANGEYBY'
         self.check_key_exists(key)
         self.check_param(key, '%1')
-        self.check_param(key, ' y ')
+        self.check_param(key, 'y')
 
     # mscratch-i18n/blocks/MOTION_SETY contains %1 and y
     def test_MOTION_SETY(self):
         key = 'MOTION_SETY'
         self.check_key_exists(key)
         self.check_param(key, '%1')
-        self.check_param(key, ' y ')
+        self.check_param(key, 'y')
 
     # mscratch-i18n/blocks/MOTION_SETROTATIONSTYLE contains %1 
     def test_MOTION_SETROTATIONSTYLE(self):
