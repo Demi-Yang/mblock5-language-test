@@ -163,7 +163,8 @@ class AurigaTest(unittest.TestCase):
         self.check_key_exists(key)
         self.check_param(key, '[PORT]')
         self.check_param(key, '[TEXT]')
-        self.check_param(key, 'x: [X] y: [Y]')
+        self.check_param(key, 'x: [X]')
+        self.check_param(key, 'y: [Y]')
         self.check_icon(key)
 
     # ext-i18n/auriga/auriga_show_number contains [ICON] [PORT] [NUMBER]
