@@ -111,7 +111,7 @@ class McoreAllTest(unittest.TestCase):
         key = 'mcore_show_text_position'
         self.check_key_exists(key)
         self.check_icon(key)
-        self.check_params(key, ['[PORT]', '[TEXT]', 'x: [X] y: [Y]'])
+        self.check_params(key, ['[PORT]', '[TEXT]', 'x: [X]', 'y: [Y]'])
 
     # ext-i18n/mcore_all/mcore_show_number contains [ICON] [PORT] [NUMBER] 
     def test_mcore_show_number(self):

@@ -193,7 +193,8 @@ class AurigaAllTest(unittest.TestCase):
         self.check_key_exists(key)
         self.check_param(key, '[PORT]')
         self.check_param(key, '[FACE_PANEL]')
-        self.check_param(key, 'x: [X] y: [Y]')
+        self.check_param(key, 'x: [X]')
+        self.check_param(key, 'y: [Y]')
         self.check_icon(key)
 
     # ext-i18n/auriga_all/auriga_show_text contains [ICON] [PORT] [TEXT]
